@@ -1,0 +1,70 @@
+@import "./Apps.scss";
+$back-color: #e1e9de;
+$back-color_button: #619a5d;
+
+
+.login{
+  background-image: url("../static/fondo-login.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* justify-content: center; */
+  display: flex;
+  /* padding: 0px 30px; */
+  flex-direction: column;
+  min-height: calc(
+    112vh - 230px
+  );
+}
+
+.loginContainer {
+  border-radius: 40px;
+  background-color: $back-color;
+  font-family: Cooper;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  padding: 20px 5px;
+}
+.loginContainer input {
+  opacity: 0.89;
+  border-radius: 7px;
+  font-size: x-large;
+  padding-left: 10px;
+}
+.loginContainer h1 {
+  font-weight: 900;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  color: $font-color_brown;
+  text-decoration: underline;
+}
+
+.loginContainer h2 {
+  /*    font-weight: 900; */
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-align: center;
+  color: $font-color_brown;
+  margin-right: 20px;
+}
+
+#button_login {
+/*   width: 285px;
+  height: 74px; */
+  border-radius: 6px;
+  border: solid 1px #707070;
+  background-color: $back-color_button;
+  font-family: BigJohn;
+  font-size: 34px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.41;
+  letter-spacing: normal;
+  text-align: center;
+  color: $back-color;
+}
