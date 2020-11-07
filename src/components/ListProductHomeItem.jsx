@@ -19,11 +19,9 @@ const ListProductHomeItem = (props) => {
       producto,
       unidad,
     };
-    /* console.log(p); */
     carrito.push(p);
     setTotal(Number.parseFloat(producto.precioProd * unidad + total));
     setProductosCarrito(carrito);
-    /* console.log(productosCarrito); */
     setUnidad(1);
     setRefrescar(true);
   };

@@ -6,10 +6,6 @@ import ShoppingCartItem from "./ShoppingCartItem";
 
 const ShoppingCart = (props) => {
   const { productosCarrito, total, removeProdCart, cancelSale } = props;
-
-  /* console.log("EN shoppingCart");
-  console.log(`EN shoppingCar TOTAL = ${total}`) */
-  /* console.log(productosCarrito); */
   
   return (
     <div className="shoppingCart">
@@ -31,7 +27,6 @@ const ShoppingCart = (props) => {
             )}
             total={total}
             removeProdCart={removeProdCart}
-            /* setProductosCarrito={setProductosCarrito} */
           ></ShoppingCartItem>
         ))}
         <div>

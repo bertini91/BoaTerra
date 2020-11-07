@@ -9,10 +9,10 @@ const Header = (props) => {
   return (
     <div className="header">
       {!isLogin ? (
-        <div>
-          <button>Productos</button>
-          <button>Clientes</button>
-          <button>Envios</button>
+        <div className="commonButtons">
+          <button><Link>Productos</Link> </button>            {/* Debo tratarlo como Link */}
+          <button><Link>Clientes</Link> </button>
+          <button><Link>Envios</Link></button>
         </div>
       ) : null}
       <Link to="/">
@@ -33,9 +33,7 @@ const Header = (props) => {
                 <Link to="/">Iniciar Sesion</Link>{" "}
               </li>
             ) : (
-              <div>
-                <div>
-                  <ul>
+                <div className="mt-0 header__menu-ListOption">
                     {isAdmin ? (
                       <>
                         <li>
@@ -52,9 +50,7 @@ const Header = (props) => {
                     <li>
                       <Link to="/">Cerrar Sesion</Link>
                     </li>
-                  </ul>
                 </div>
-              </div>
             )}
           </ul>
         </div>

@@ -7,16 +7,10 @@ const ShoppingCartItem = (props) => {
     productoDetalle,
     nombre,
     cantidad,
-    precio,
     totalUnitario,
-    total,
     index,
     removeProdCart
   } = props;
-  /* setTotal(Number.parseFloat(totalUnitario + total)); */
-  /* console.log(`ShoppingCartItem TOTAL = ${total}`);
-  console.log(`${productoDetalle} ${nombre} ${precio}`); */
-  /* console.log(index) */
   return (
     <div className="shoppingCardItem">
       <div className="shoppingCart_detail">
