@@ -9,10 +9,27 @@ const Header = (props) => {
   return (
     <div className="header">
       {!isLogin ? (
-        <div className="commonButtons">
-          <button><Link>Productos</Link> </button>            {/* Debo tratarlo como Link */}
-          <button><Link>Clientes</Link> </button>
-          <button><Link>Envios</Link></button>
+        <div className="sectionOption">
+          <button className="buttonOption">...</button>
+          <ul className="ulOptionHeader">
+            <div className="commonButtons">
+              <li>
+                <button>
+                  <Link>Productos</Link>
+                </button>{" "}
+              </li>
+              <li>
+                <button>
+                  <Link>Clientes</Link>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <Link>Envios</Link>
+                </button>
+              </li>
+            </div>
+          </ul>
         </div>
       ) : null}
       <Link to="/">
@@ -21,7 +38,11 @@ const Header = (props) => {
 
       {isLogin ? <h1 className="title">Bienvenidos</h1> : null}
       <div className="d-flex">
-        {isAdmin ? <button>Cierre de Caja</button> : null}
+        {isAdmin ? (
+          <button className="closeBox_perfil-nav">
+            <Link>Cierre de Caja</Link>
+          </button>
+        ) : null}
         <div className="header__menu">
           <div className="header__menu--profile">
             <img src={user_person} alt="" />
@@ -33,24 +54,25 @@ const Header = (props) => {
                 <Link to="/">Iniciar Sesion</Link>{" "}
               </li>
             ) : (
-                <div className="mt-0 header__menu-ListOption">
-                    {isAdmin ? (
-                      <>
-                        <li>
-                          <Link to="">Mis Datos</Link>
-                        </li>
-                        <li>
-                          <Link to="">Control Caja</Link>
-                        </li>
-                        <li>
-                          <Link to="">Usuarios</Link>
-                        </li>
-                      </>
-                    ) : null}
+              <div className="mt-0 header__menu-ListOption">
+                {isAdmin ? (
+                  <>
                     <li>
-                      <Link to="/">Cerrar Sesion</Link>
+                      <Link to="">Mis Datos</Link>
                     </li>
-                </div>
+                    <li className="closeBox_perfil"><Link>Cierre de Caja</Link></li>
+                    <li>
+                      <Link to="">Control Caja</Link>
+                    </li>
+                    <li>
+                      <Link to="">Usuarios</Link>
+                    </li>
+                  </>
+                ) : null}
+                <li>
+                  <Link to="/">Cerrar Sesion</Link>
+                </li>
+              </div>
             )}
           </ul>
         </div>

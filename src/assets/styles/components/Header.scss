@@ -30,17 +30,14 @@ $back-color_perfil: rgba(225, 233, 222, 0.59);
   justify-content: space-between;
   align-items: center;
 }
+.ulOptionHeader {
+  display: flex;
+}
+.commonButtons {
+  display: flex;
+}
 
 .header button {
-  font-family: BigJohn;
-  font-size: 23px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: center;
-  color: #e1e9de;
   border-radius: 6px;
   border: solid 1px #707070;
   background-color: #619a5d;
@@ -48,15 +45,32 @@ $back-color_perfil: rgba(225, 233, 222, 0.59);
   text-transform: uppercase;
   font-weight: bold;
 }
+.buttonOption {
+  margin: 0;
+  display: none;
+}
+.header ul {
+  list-style: none;
+  margin-bottom: 0;
+}
+.header button a {
+  font-family: BigJohn;
+  font-size: 23px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: #e1e9de;
+  text-decoration: none;
+}
 
 .header__menu {
   margin-right: 45px;
-  /* padding-left: 20px; */
   display: flex;
-  /* height: 100%; */
 }
-.header__menu-ListOption{
-  /* background-color: $back-color_perfil; */
+.header__menu-ListOption,
+.ulOptionHeader {
   background-color: $back-color_header-footer;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -64,17 +78,11 @@ $back-color_perfil: rgba(225, 233, 222, 0.59);
 
 .header__menu ul {
   display: none;
-  list-style: none;
-  /* margin: 0px 0px 0px -14px; */
   padding: 0px;
   padding-top: 50px;
   position: absolute;
   z-index: 2;
-  /* width: 100px; */
   width: max-content;
-  
-  /* text-align: right;
-  margin-left: 0; */
 }
 
 .header__menu:hover ul,
@@ -83,24 +91,19 @@ ul:hover {
 }
 
 .header__menu li {
-  /* background-color: $back-color_perfil; */
   padding: 5px 7px 3px 7px;
-  /* text-decoration: none; */
 }
 
-
 .header__menu li a {
-  color: #e1e9de;;
+  color: #e1e9de;
   font-weight: bold;
-  /* text-decoration: none; */
-  /* padding-top: 5px; */
   font-family: $font-famili_Header;
   text-transform: uppercase;
 }
-.header__menu li a:hover{
+.header__menu li a:hover {
   font-size: 1.04rem;
 }
-.header__menu li:hover {
+li:hover {
   text-decoration: underline;
   text-decoration: none;
 }
@@ -121,75 +124,56 @@ ul:hover {
   margin-right: 8px;
   width: 40px;
   border-radius: 100%;
-  object-fit: cover; //es usado para ordenar la imagen y no se deforme
+  object-fit: cover;
 }
 
-/* 
-#header {
-  z-index: 2;
-  position: fixed;
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background: #222;
-  
-#nav {
-  position: absolute;
-  right: 0;
-  top: -15px;
-  height: 60px;
+.closeBox_perfil {
+  display: none;
 }
-#nav ul li {
-  float: left;
-  list-style: none;
-}
-#nav ul li a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  padding: 0 10px;
-} 
 
-@media (max-width: 599px) {
-  #header .container {
-    width: 100%;
+@media screen and (max-width: 1040px) {
+  .closeBox_perfil {
+    display: inline;
   }
-  #header h1 {
-    padding-left: 3%;
+  .closeBox_perfil-nav {
+    display: none;
   }
-  #nav {
-    width: 100%;
-    top: 60px;
-  }
-  #nav:before {
-    content: '\2630';
+  .buttonOption {
     display: block;
+  }
+  .ulOptionHeader {
+    padding-left: 0;
     position: absolute;
-    right: 3%;
-    top: -50px;
-    line-height: 40px;
-    font-size: 1.4em;
-    cursor: pointer;
+    padding-top: 25px;
+    z-index: 2;
   }
-  #nav ul {
-    background: #222;
-    width: 100%;
-    margin: 0px;
-  }
-  #nav ul li {
-    float: none;
-  }
-  #nav ul li a {
-    padding: 10px 3%;
-    line-height: 20px;
-    border-top: 1px solid #333;
-  }
-}*/
 
-@media screen and (max-width: 870px){
-  .commonButtons button{
-    float: none;
+  .sectionOption {
+    align-content: initial;
+  }
+
+  .commonButtons {
+    display: grid;
+  }
+  .commonButtons li button {
+    background-color: $back-color_header-footer;
+    border: none;
+  }
+  .sectionOption ul {
+    display: none;
+  }
+  .commonButtons li {
+    display: inline;
+    padding: 0px;
+    z-index: 2;
+    width: 100%;
+  }
+  .sectionOption:hover .ulOptionHeader,
+  .ulOptionHeader:hover {
     display: block;
-    text-align: left;
+  }
+  .sectionOption li:hover {
+    text-decoration: underline;
+    text-decoration: none;
   }
 }
