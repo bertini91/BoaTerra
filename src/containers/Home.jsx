@@ -12,29 +12,37 @@ const Home = (props) => {
   /* const [cantidad, setCantidad] = useState(1); */
   /* const [importe, setImporte] = useState(); */
   const [total, setTotal] = useState(0);
-  const { productos, setRefrescar } = props;
-  
+  const { productos, setRefrescar, combos } = props;
 
   /* useEffect(() => {
 
   }, [productosCarrito]); */
   const removeProdCart = (index) => {
     const carrito = productosCarrito.filter((item, i) => i !== index);
-    let calcularTotal=0;
-    carrito.forEach((item)=> calcularTotal =calcularTotal+ item.producto.precioProd);
+    let calcularTotal = 0;
+    carrito.forEach((item) => {
+      calcularTotal = calcularTotal + item.producto.precioProd * item.unidad;
+    });
     setTotal(calcularTotal);
     setProductosCarrito(carrito);
   };
 
-  const cancelSale=()=>{
+  const cancelSale = () => {
     setProductosCarrito([]);
-    setTotal(0)
-  }
+    setTotal(0);
+  };
 
   return (
     <div className="home">
       <Header isLogin={false} isAdmin /* ={false} */></Header>
-      <Carousel></Carousel>
+      <Carousel
+        combos={combos}
+        productosCarrito={productosCarrito}
+        setRefrescar={setRefrescar}
+        total={total}
+        setProductosCarrito={setProductosCarrito}
+        setTotal={setTotal}
+      ></Carousel>
       <Search></Search>
 
       <div className="d-flex">

@@ -1,18 +1,34 @@
 @import "../Apps.scss";
 
-.carouselItem {
+.backgroudItem {
   background-image: url("/src/assets/static/fondo_combo.png");
   background-repeat: no-repeat;
   background-size: cover;
   padding: 5px;
-  margin-right: 5px;
   opacity: 0.8;
   border-radius: 16px;
 }
 
+.carouselItem {
+  /* background-image: url("/src/assets/static/fondo_combo.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
+  /* padding: 5px; */
+  margin-right: 5px;
+  /* opacity: 0.8;
+  border-radius: 16px; */
+}
+
 .carouselItem p,
-li {
+li,
+a {
   color: $font-color_green;
+}
+
+a:hover {
+  text-decoration: none;
+  color: $font-color_green;
+  font-size: 19px;
 }
 
 .carouselItem p {
@@ -29,12 +45,12 @@ li {
   text-decoration: underline;
 }
 
-.carouselItem ul{
-    list-style: none;
-    padding: 10px;
+.listProd {
+  list-style: none;
+  padding: 10px;
 }
 
-.carouselItem li {
+.itemList {
   font-family: SitkaHeading;
   font-size: 14px;
   font-weight: bold;
@@ -42,6 +58,7 @@ li {
   font-style: normal;
   line-height: 1.42;
   letter-spacing: normal;
+  padding-left: 15px;
   /* text-align: center; */
 }
 
@@ -49,7 +66,7 @@ li {
   border-radius: 6px;
   background-color: #619a5d;
   font-family: Cooper;
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 900;
   font-stretch: normal;
   font-style: normal;
@@ -58,3 +75,94 @@ li {
   text-align: center;
   color: #e1e9de;
 }
+
+.carouselItem button:hover {
+  font-size: 14px;
+}
+
+.modal-content {
+  /* opacity: 1; */
+  border-radius: 16px !important;
+}
+.modal-title {
+  font-family: BigJohn;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: $font-color_brown;
+  font-size: xx-large;
+  text-decoration: underline overline blink;
+}
+.modal-body h6, .modal-body h5 {
+  color: $font-color_brown;
+}
+.itemList p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: $font-color_brown;
+}
+.modal-footer {
+  justify-content: space-around !important;
+}
+.buttonClose {
+  font-family: TimesNewRomanPS-MT;
+  font-size: 18px;
+  font-weight: bold;
+}
+.buttonClose:hover {
+  font-size: 20px;
+}
+.buttonAcept {
+  background-color: $font-color_green;
+  font-family: TimesNewRomanPS-MT;
+  font-size: 18px;
+  font-weight: bold;
+  color: #e1e9de;
+  border-color: $back-color_header-footer !important;
+  margin-left: 10px;
+}
+.buttonAcept:hover {
+  background-color: $back-color_header-footer;
+  font-size: 20px;
+  color: $font-color_brown;
+}
+
+.buttonLess {
+  /* width: 26px;
+  height: 24px; */
+  background-color: #e1e9de;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.buttonMore {
+  /* width: 26px;
+  height: 24px; */
+  background-color: #e1e9de;
+  border: none;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.inputAmount {
+  width: 65px;
+  height: 24px;
+  opacity: 0.9;
+  text-align: center;
+  background-color: #e1e9de;
+  border: none;
+}
+
+.modal-title-amount {
+  text-decoration: none !important;
+  text-align: center;
+  font-size: x-large;
+}
+
+.modal-body h5{
+  font-family: SitkaHeading;
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/static/index3.png";
 import "../assets/styles/components/Header.scss";
 import user_person from "../assets/static/user_person.png";
+import icon_option from "../assets/static/header-icon_option.png"
 
 const Header = (props) => {
   const { isLogin, isAdmin } = props;
@@ -10,7 +11,7 @@ const Header = (props) => {
     <div className="header">
       {!isLogin ? (
         <div className="sectionOption">
-          <button className="buttonOption">...</button>
+          <button className="buttonOption"><img src={icon_option} className="img_option" alt="" srcset=""/></button>
           <ul className="ulOptionHeader">
             <div className="commonButtons">
               <li>

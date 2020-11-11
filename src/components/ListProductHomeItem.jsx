@@ -12,6 +12,7 @@ const ListProductHomeItem = (props) => {
     total,
     setTotal,
   } = props;
+  /* console.log(producto); */
   const [unidad, setUnidad] = useState(1);
   const handleButton = () => {
     const carrito = productosCarrito;
