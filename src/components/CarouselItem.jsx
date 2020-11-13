@@ -58,6 +58,7 @@ const CarouselItem = (props) => {
     <>
       <div className="carouselItem backgroudItem">
         <Link onClick={handleShow}>
+          
           <p>{nombreCombo}</p>
         </Link>
         <ul className="listProd">

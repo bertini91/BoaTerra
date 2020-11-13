@@ -34,7 +34,6 @@ const Home = (props) => {
 
   return (
     <div className="home">
-      <Header isLogin={false} isAdmin /* ={false} */></Header>
       <Carousel
         combos={combos}
         productosCarrito={productosCarrito}

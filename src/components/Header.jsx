@@ -6,7 +6,7 @@ import user_person from "../assets/static/user_person.png";
 import icon_option from "../assets/static/header-icon_option.png"
 
 const Header = (props) => {
-  const { isLogin, isAdmin } = props;
+  const { isLogin, isAdmin} = props;
   return (
     <div className="header">
       {!isLogin ? (

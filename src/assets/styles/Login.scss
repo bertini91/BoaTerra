@@ -68,3 +68,11 @@ $back-color_button: #619a5d;
   text-align: center;
   color: $back-color;
 }
+.button_eror{
+  display: inline-grid;
+}
+
+#p-error{
+  display: none;
+  color: red;
+}
