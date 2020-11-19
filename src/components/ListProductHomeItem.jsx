@@ -37,8 +37,7 @@ const ListProductHomeItem = (props) => {
         {/* <p>Bandeja $150</p> */}
       </section>
       <section className="d-flex align-items-center ml-5 bodyItem">
-        <div>
-          <div className="d-flex  align-items-center">
+          <div className="d-flex  align-items-center unitButtons">
             <button className="buttonLess" onClick={amountLess}>
               -
             </button>
@@ -54,12 +53,13 @@ const ListProductHomeItem = (props) => {
               +
             </button>
           </div>
+        <div className="unitButtons">
           {/* <div className="d-flex mt-3 justify-content-center">
             <button className="buttonType buttonTypeGr">125 g</button>
             <button className="buttonType buttonTypeTray">Bandeja</button>
           </div> */}
         </div>
-        <p className="amount">{`$ ${producto.precioProd}`}</p>
+        <p className="amount">{`$ ${producto.precioProd * unidad}`}</p>
         <button button="button" className="buttonAdd" onClick={handleButton}>
           AGREGAR
         </button>

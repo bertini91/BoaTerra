@@ -18,7 +18,7 @@ const CarouselItem = (props) => {
   };
   const amountAdd = () => setUnidad(unidad + 1);
   const amountLess = () => (unidad > 1 ? setUnidad(unidad - 1) : null);
-  
+
   const {
     productoCombo,
     nombreCombo,
@@ -37,18 +37,18 @@ const CarouselItem = (props) => {
 
   const handleBuy = () => {
     handleCloseAmount();
-    setTotal(total+priceTotal);
+    setTotal(total + priceTotal);
     const carrito = productosCarrito;
-    const producto ={
+    const producto = {
       nombreProd: nombreCombo,
       detalleProd: `Precio unidad $ ${precioCombo}`,
       unidad,
-      precioProd: precioCombo
-    }
-    const p ={
+      precioProd: precioCombo,
+    };
+    const p = {
       producto,
-      unidad
-    }
+      unidad,
+    };
     carrito.push(p);
     setProductosCarrito(carrito);
     setUnidad(1);
@@ -58,13 +58,12 @@ const CarouselItem = (props) => {
     <>
       <div className="carouselItem backgroudItem">
         <Link onClick={handleShow}>
-          
           <p>{nombreCombo}</p>
         </Link>
         <ul className="listProd">
           {productoCombo.map((element, i) =>
             i < 4 ? (
-              <li className="itemList">
+              <li className="itemList" key={i}>
                 {element.detalleProd} - {element.nombreProd}
               </li>
             ) : null
@@ -86,7 +85,7 @@ const CarouselItem = (props) => {
             <h6>{detalleCombo}</h6>
             <ul className="listProd">
               {productoCombo.map((element, i) => (
-                <li className="itemList d-flex">
+                <li className="itemList d-flex" key={i}>
                   <p>{element.detalleProd}</p>
                   <p className="ml-4">{element.nombreProd}</p>
                 </li>

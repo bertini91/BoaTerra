@@ -46,14 +46,14 @@ const Login = (props) => {
     <div className="login">
       <form onSubmit={consultarDatos} className="loginContainer">
         <h1 className="py-3">INGRESE SUS DATOS</h1>
-        <div className="d-flex m-4 justify-content-between">
+        <div className="d-flex m-4 justify-content-between login-line_input">
           <h2>Usuario: </h2>
           <input
             placeholder="Ingrese su usuario"
             onChange={(e) => setUsuario(e.target.value)}
           ></input>
         </div>
-        <div className="d-flex m-4 justify-content-between">
+        <div className="d-flex m-4 justify-content-between login-line_input">
           <h2>Contraseña: </h2>
           <input
             placeholder="Ingrese su contraseña"

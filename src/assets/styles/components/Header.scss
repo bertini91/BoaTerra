@@ -135,6 +135,23 @@ li:hover {
   display: none;
 }
 
+@media (max-width:635px){
+  #headerTitle{
+    font-size: 30px;
+  }
+}
+@media (max-width:530px){
+  #headerTitle{
+    display: none;
+  }
+  /* .header__menu{
+    margin-right: auto;
+  } */
+  #header_logo{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 1040px) {
   .closeBox_perfil {
     display: inline;

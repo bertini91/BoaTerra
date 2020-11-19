@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import ListProductHome from "../components/ListProductHome";
 import Search from "../components/Search";
 import ShoppingCart from "../components/ShoppingCart";
+import carritoLogo from "../assets/static/carritoCompra.png";
 import "../assets/styles/Home.scss";
 
 const Home = (props) => {
@@ -44,7 +45,7 @@ const Home = (props) => {
       ></Carousel>
       <Search></Search>
 
-      <div className="d-flex">
+      <div className="home-content">
         <div className="d-flex">
           <ListProductHome
             productos={productos}
@@ -55,15 +56,22 @@ const Home = (props) => {
             setTotal={setTotal}
           ></ListProductHome>
         </div>
-        {productosCarrito.length > 0 ? (
-          <ShoppingCart
-            productosCarrito={productosCarrito}
-            total={total}
-            setTotal={setTotal}
-            removeProdCart={removeProdCart}
-            cancelSale={cancelSale}
-          ></ShoppingCart>
-        ) : null}
+        <div className="d-block">
+          {productosCarrito.length > 0 ? (
+            <ShoppingCart
+              productosCarrito={productosCarrito}
+              total={total}
+              setTotal={setTotal}
+              removeProdCart={removeProdCart}
+              cancelSale={cancelSale}
+            ></ShoppingCart>
+          ) : null}
+          {/* <div className="conteinetButton_shop">
+            {<button className="button-shop">
+              <img src={carritoLogo} alt="Carrito" />
+            </button>}
+          </div> */}
+        </div>
       </div>
     </div>
   );

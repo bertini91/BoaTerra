@@ -37,7 +37,7 @@ const Header = (props) => {
         <img id="header_logo" src={logo} alt="Logo BoaTerra"></img>
       </Link>
 
-      {isLogin ? <h1 className="title">Bienvenidos</h1> : null}
+      {isLogin ? <h1 id="headerTitle" className="title">Bienvenidos</h1> : null}
       <div className="d-flex">
         {isAdmin ? (
           <button className="closeBox_perfil-nav">

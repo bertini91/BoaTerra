@@ -14,9 +14,9 @@ const Carousel = (props) => {
   return (
     <section className="carousel">
       <div className="carousel__container">
-        {combos.map((item) => (
+        {combos.map((item, i) => (
           <CarouselItem
-            key={item._id}
+            key={i}
             productoCombo={item.productoCombo}
             nombreCombo={item.nombreCombo}
             detalleCombo={item.detalleCombo}
@@ -28,25 +28,6 @@ const Carousel = (props) => {
             setTotal={setTotal}
           ></CarouselItem>
         ))}
-        {/* <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem>
-        <CarouselItem></CarouselItem> */}
       </div>
     </section>
   );

@@ -2,8 +2,7 @@
 $back-color: #e1e9de;
 $back-color_button: #619a5d;
 
-
-.login{
+.login {
   background-image: url("../static/fondo-login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -11,9 +10,7 @@ $back-color_button: #619a5d;
   display: flex;
   /* padding: 0px 30px; */
   flex-direction: column;
-  min-height: calc(
-    112vh - 230px
-  );
+  min-height: calc(112vh - 230px);
 }
 
 .loginContainer {
@@ -53,7 +50,7 @@ $back-color_button: #619a5d;
 }
 
 #button_login {
-/*   width: 285px;
+  /*   width: 285px;
   height: 74px; */
   border-radius: 6px;
   border: solid 1px #707070;
@@ -68,11 +65,28 @@ $back-color_button: #619a5d;
   text-align: center;
   color: $back-color;
 }
-.button_eror{
+.button_eror {
   display: inline-grid;
 }
 
-#p-error{
+#p-error {
   display: none;
   color: red;
+}
+
+@media (max-width: 700px) {
+  .login h1,
+  #button_login {
+    font-size: 25px;
+  }
+  .login h2 {
+    font-size: 22px;
+    margin-top: 5px;
+  }
+  .login input {
+    font-size: 20px;
+  }
+  .login-line_input{
+    display: block !important;
+  }
 }
