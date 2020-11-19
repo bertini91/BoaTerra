@@ -8,16 +8,15 @@ import carritoLogo from "../assets/static/carritoCompra.png";
 import "../assets/styles/Home.scss";
 
 const Home = (props) => {
+  const { productos, setRefrescar, combos, setProductos } = props;
   const [productosCarrito, setProductosCarrito] = useState([]);
   const [productoDetalle, setProductoDetalle] = useState();
+  
   /* const [cantidad, setCantidad] = useState(1); */
   /* const [importe, setImporte] = useState(); */
   const [total, setTotal] = useState(0);
-  const { productos, setRefrescar, combos } = props;
-
-  /* useEffect(() => {
-
-  }, [productosCarrito]); */
+  
+  
   const removeProdCart = (index) => {
     const carrito = productosCarrito.filter((item, i) => i !== index);
     let calcularTotal = 0;
@@ -43,7 +42,7 @@ const Home = (props) => {
         setProductosCarrito={setProductosCarrito}
         setTotal={setTotal}
       ></Carousel>
-      <Search></Search>
+      <Search productos={productos} setProductos={setProductos} setRefrescar={setRefrescar}></Search>
 
       <div className="home-content">
         <div className="d-flex">

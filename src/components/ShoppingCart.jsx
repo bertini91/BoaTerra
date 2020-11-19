@@ -12,12 +12,12 @@ const ShoppingCart = (props) => {
   return (
     <div>
       {!hideShoppingCart ? (
-        <div className="shoppingCart">
+        <div className="shoppingCart" id="shopping">
           <div className="cart-img_title">
             <img src={carritoLogo} alt="Carrito" className="img-cart" />
             <p className="shoppingCart_title">PEDIDO</p>
             <button
-              className="button-shop button-shop_minimizer"
+              className="transparentButton button-shop_minimizer"
               onClick={() => {
                 setHideIcon(false);
                 setHideShoppingCart(true);
@@ -59,8 +59,11 @@ const ShoppingCart = (props) => {
         <div className="conteinetButton_shop">
           {
             <button
-              className="button-shop"
-              onClick={() =>{ setHideShoppingCart(false); setHideIcon(true)}}
+              className="transparentButton"
+              onClick={() => {
+                setHideShoppingCart(false);
+                setHideIcon(true);
+              }}
             >
               <img
                 className="button-shop_img"

@@ -15,13 +15,13 @@ const ShoppingCartItem = (props) => {
     <div className="shoppingCardItem">
       <div className="shoppingCart_detail">
         <p className="text-uppercase mb-2">{nombre}</p>
-        <p className="text-left pl-3">
+        <p className="text-left pl-4">
           {cantidad} -- {productoDetalle}
         </p>
       </div>
       <div className="cardItem-delete-total">
         <p className="shoppingCart_amount">$ {totalUnitario}</p>
-        <button className="" onClick={()=>removeProdCart(index)}>
+        <button className="transparentButton" onClick={()=>removeProdCart(index)}>
           <img
             src={eliminarProducto}
             alt="Eliminar"

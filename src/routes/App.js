@@ -38,6 +38,15 @@ const App = () => {
         "http://localhost:4000/api/boaTerra/"
       ); //codigo 11000 me devuelve de error si los datos ya estan almacenados
       const resultadoUsuarios = await respuestaUsuarios.json();
+      resultadoProd.sort((a, b) => {
+        if (a.nombreProd > b.nombreProd) {
+          return 1;
+        }
+        if (a.nombreProd < b.nombreProd) {
+          return -1;
+        }
+        return 0;
+      });
       setProductos(resultadoProd);
       setCombos(resultadoCombos);
       setUsuarios(resultadoUsuarios);
@@ -66,6 +75,7 @@ const App = () => {
             productos={productos}
             setRefrescar={setRefrescar}
             combos={combos}
+            setProductos={setProductos}
           ></Home>
         </Route>
       </Switch>
