@@ -1,14 +1,19 @@
 import React from "react";
 import carritoLogo from "../assets/static/carritoCompra.png";
 import "../assets/styles/components/ShoppingCart.scss";
+import '../assets/styles/Cart.scss';
 import ShoppingCartItem from "./ShoppingCartItem";
 import minimizar from "../assets/static/minimize.png";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 const ShoppingCart = (props) => {
   const { productosCarrito, total, removeProdCart, cancelSale } = props;
   const [hideIcon, setHideIcon] = useState(true);
   const [hideShoppingCart, setHideShoppingCart] = useState(false);
+
+
   return (
     <div>
       {!hideShoppingCart ? (
@@ -49,7 +54,12 @@ const ShoppingCart = (props) => {
                 <button className="cartButton" onClick={cancelSale}>
                   CANCELAR
                 </button>
-                <button className="cartButton">CONFIRMAR</button>
+                <button
+                  className="cartButton"
+                  /* onClick={() => hashHistory.push(`/confirmarEnvio`)} */
+                >
+                <Link className=" cartButtonLink" to="/confirmarEnvio">CONFIRMAR</Link>
+                </button>
               </div>
             </div>
           </div>

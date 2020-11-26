@@ -33,7 +33,7 @@ const Header = (props) => {
           </ul>
         </div>
       ) : null}
-      <Link to="/">
+      <Link to="/principal">
         <img id="header_logo" src={logo} alt="Logo BoaTerra"></img>
       </Link>
 

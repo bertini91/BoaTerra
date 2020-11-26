@@ -101,6 +101,12 @@ margin-right: 4%;
   text-align: center;
   color: #e1e9de;
   margin-bottom: 10px;
+/*   text-decoration: #e1e9de; */
+}
+
+.cartButtonLink:hover, .cartButtonLink{
+  color: #e1e9de;
+  font-size: 14px;
 }
 .cardItem-delete-total{
   display: flex;

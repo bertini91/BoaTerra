@@ -4,6 +4,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer.jsx";
 import Login from "../containers/Login";
 import Home from "../containers/Home";
+import Cart from "../containers/Cart";
+import Sending from "../containers/Sending";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -13,12 +15,22 @@ const App = () => {
   const [usuarioActivo, setUsuarioActivo] = useState({});
   const [isLogin, setIsLogin] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [productosCarrito, setProductosCarrito] = useState([]);
+  const [enviosHoy, setEnviosHoy] = useState([]);
+  const [total, setTotal] = useState(0);
+
   useEffect(() => {
     if (refrescar) {
       consultarAPI();
       setRefrescar(false);
     }
   }, [refrescar]);
+
+  const cancelSale = () => {
+    setProductosCarrito([]);
+    setTotal(0);
+  };
+
   const consultarAPI = async () => {
     try {
       const respuestaProd = await fetch(
@@ -56,12 +68,51 @@ const App = () => {
   };
   return (
     /* productos.length>0 ? */
-    <Router>
-      <Header
-        isLogin={isLogin}
-        isAdmin={isAdmin}
-      ></Header>
-      <Switch>
+    Object.keys(usuarioActivo).length !== 0 ? (
+      <Router>
+        <Header isLogin={isLogin} isAdmin={isAdmin}></Header>
+        <Switch>
+          {/* <Route exact path="/">
+            <Login
+              usuarios={usuarios}
+              setUsuarioActivo={setUsuarioActivo}
+              setIsLogin={setIsLogin}
+              setIsAdmin={setIsAdmin}
+            ></Login>
+          </Route> */}
+          {/* FALTA PREGUNTAR SI EL USUARIO ESTA ACTIVO, SINO MANDAR A LA PAG404 */}
+          <Route exact path="/principal">
+            <Home
+              productos={productos}
+              setRefrescar={setRefrescar}
+              combos={combos}
+              setProductos={setProductos}
+              productosCarrito={productosCarrito}
+              setProductosCarrito={setProductosCarrito}
+              total={total}
+              setTotal={setTotal}
+              cancelSale={cancelSale}
+            ></Home>
+          </Route>
+          <Route exact path="/confirmarEnvio">
+            <Cart
+              productosCarrito={productosCarrito}
+              setRefrescar=""
+              total={total}
+              setTotal={setTotal}
+              setProductosCarrito={setProductosCarrito}
+              usuarioActivo={usuarioActivo}
+            ></Cart>
+          </Route>
+          <Route exact path="/envios">
+            <Sending></Sending>
+          </Route>
+        </Switch>
+        <Footer></Footer>
+      </Router>
+    ) : (
+      <Router>
+        <Header isLogin={isLogin} isAdmin={isAdmin}></Header>
         <Route exact path="/">
           <Login
             usuarios={usuarios}
@@ -70,17 +121,9 @@ const App = () => {
             setIsAdmin={setIsAdmin}
           ></Login>
         </Route>
-        <Route exact path="/principal">
-          <Home
-            productos={productos}
-            setRefrescar={setRefrescar}
-            combos={combos}
-            setProductos={setProductos}
-          ></Home>
-        </Route>
-      </Switch>
-      <Footer></Footer>
-    </Router>
+        <Footer></Footer>
+      </Router>
+    )
   );
 };
 

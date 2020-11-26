@@ -18,14 +18,14 @@ const Login = (props) => {
     setIsAdmin(false);
   }, []);
 
-  const consultarDatos = () => {
-    event.preventDefault();
+  const consultarDatos = (e) => {
+    e.preventDefault();
     const activo = usuarios.find(
       (item) => item.usuarioUsu === usuario && item.contrasenaUsu === contrasena
     );
     if (activo) {
-      setUsuarioActivo(true);
-      console.log(activo);
+      setUsuarioActivo(activo);
+/*       console.log(activo); */
       setIsLogin(false);
       activo.permisoUsu === true ? setIsAdmin(true) : setIsAdmin(false);
       history.push("/principal");

@@ -8,13 +8,13 @@ import carritoLogo from "../assets/static/carritoCompra.png";
 import "../assets/styles/Home.scss";
 
 const Home = (props) => {
-  const { productos, setRefrescar, combos, setProductos } = props;
-  const [productosCarrito, setProductosCarrito] = useState([]);
-  const [productoDetalle, setProductoDetalle] = useState();
+  const { productos, setRefrescar, combos, setProductos, productosCarrito, setProductosCarrito,setTotal, total, cancelSale} = props;
+  /* const [productosCarrito, setProductosCarrito] = useState([]); */
+  /* const [productoDetalle, setProductoDetalle] = useState(); */
   
   /* const [cantidad, setCantidad] = useState(1); */
   /* const [importe, setImporte] = useState(); */
-  const [total, setTotal] = useState(0);
+  /* const [total, setTotal] = useState(0); */
   
   
   const removeProdCart = (index) => {
@@ -27,11 +27,11 @@ const Home = (props) => {
     setProductosCarrito(carrito);
   };
 
-  const cancelSale = () => {
+  /* const cancelSale = () => {
     setProductosCarrito([]);
     setTotal(0);
   };
-
+ */
   return (
     <div className="home">
       <Carousel
