@@ -23,6 +23,7 @@ const Login = (props) => {
     const activo = usuarios.find(
       (item) => item.usuarioUsu === usuario && item.contrasenaUsu === contrasena
     );
+    console.log(activo)
     if (activo) {
       setUsuarioActivo(activo);
 /*       console.log(activo); */

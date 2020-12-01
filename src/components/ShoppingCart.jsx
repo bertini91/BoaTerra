@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 
 const ShoppingCart = (props) => {
-  const { productosCarrito, total, removeProdCart, cancelSale } = props;
+  const { productosCarrito, total, removeProdCart, clearSale } = props;
   const [hideIcon, setHideIcon] = useState(true);
   const [hideShoppingCart, setHideShoppingCart] = useState(false);
 
@@ -51,14 +51,14 @@ const ShoppingCart = (props) => {
             <div>
               <p className="shoppingCart_total">TOTAL ${total}</p>
               <div className="d-flex justify-content-around">
-                <button className="cartButton" onClick={cancelSale}>
+                <button className="cartButton" onClick={clearSale}>
                   CANCELAR
                 </button>
                 <button
                   className="cartButton"
                   /* onClick={() => hashHistory.push(`/confirmarEnvio`)} */
                 >
-                <Link className=" cartButtonLink" to="/confirmarEnvio">CONFIRMAR</Link>
+                <Link className=" cartButtonLink" to="principal/confirmarEnvio">CONFIRMAR</Link>
                 </button>
               </div>
             </div>

@@ -11,7 +11,7 @@ const Header = (props) => {
     <div className="header">
       {!isLogin ? (
         <div className="sectionOption">
-          <button className="buttonOption"><img src={icon_option} className="img_option" alt="" srcset=""/></button>
+          <button className="buttonOption"><img src={icon_option} className="img_option" alt="" srcSet=""/></button>
           <ul className="ulOptionHeader">
             <div className="commonButtons">
               <li>
@@ -41,7 +41,7 @@ const Header = (props) => {
       <div className="d-flex">
         {isAdmin ? (
           <button className="closeBox_perfil-nav">
-            <Link>Cierre de Caja</Link>
+            <Link to="">Cierre de Caja</Link>
           </button>
         ) : null}
         <div className="header__menu">

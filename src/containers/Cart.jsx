@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import CartIem from "../components/CartIem";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Dropdown from "react-bootstrap/Dropdown";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
+import { useEffect } from "react";
 
 const Cart = (props) => {
   const [showModal, setShowModal] = useState(false);
-  const [medioPago, setMedioPago] = useState("");
+  
+  /* const[hasSending, setHasSending] = useState(false); */
+  /* const [medioPago, setMedioPago] = useState(""); */
   /* const [mensaje, setMensaje] = useState(""); */
   const {
     setRefrescar,
@@ -17,10 +20,15 @@ const Cart = (props) => {
     total,
     setProductosCarrito,
     usuarioActivo,
+    medioPago,
+    setMedioPago,
+    clearSale
   } = props;
-  /* const [total, setTotal] = useState(0); */
-  /* const history = useHistory(); */
-  /* console.log(productosCarrito); */
+  let history = useHistory();
+
+  useEffect(()=>{ 
+    setMedioPago("");
+  }, [])
 
   const removeProdCart = (index) => {
     const carrito = productosCarrito.filter((item, i) => i !== index);
@@ -34,7 +42,17 @@ const Cart = (props) => {
 
   const hangleSaveSend = async () => {
     const fecha = new Date();
-    if (medioPago !== "" && productosCarrito !== null) {
+    console.log(productosCarrito);
+    console.log(medioPago === "");
+    if (medioPago === "" || productosCarrito.length === 0) {
+      Swal.fire({
+        icon: "error",
+        title: "Error!",
+        text:
+          "No seleccionaste el medio de pago y/o el carrito no tiene productos",
+        footer: "<p>*Son campos obligatorios.</p>",
+      });
+    } else {
       const newBuy = {
         fechaVen: fecha,
         estadoVen: true,
@@ -43,6 +61,7 @@ const Cart = (props) => {
         productoVen: productosCarrito,
         mediopagoVen: medioPago,
       };
+      console.log(newBuy);
       try {
         const resultado = await fetch(
           "http://localhost:4000/api/boaTerra/principal/venta",
@@ -54,12 +73,17 @@ const Cart = (props) => {
             body: JSON.stringify(newBuy),
           }
         );
-        if (resultado.status === 201) {
-          Swal.fire("Listo!", "La categoría se cargó correctamente", "success");
-          props.setRecargarCategorias(true);
-          props.history.push("/Administracion/Categorias");
+        if (resultado.status === 200) {
+          Swal.fire("Listo!", "La venta se cargó correctamente", "success");
+          clearSale();
+          setRefrescar(true);
+
+          history.push("/principal");
         }
       } catch (error) {
+        console.log(error);
+        
+        setShowModal(false);
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -67,7 +91,13 @@ const Cart = (props) => {
           footer: "<p>No se pudo cargar la venta.</p>",
         });
       }
-    } else {
+    }
+    setShowModal(false);
+  };
+
+  const handleAsk = ()=>{
+    setShowModal(false);
+    if (medioPago === "" || productosCarrito.length === 0) {
       Swal.fire({
         icon: "error",
         title: "Error!",
@@ -75,9 +105,10 @@ const Cart = (props) => {
           "No seleccionaste el medio de pago y/o el carrito no tiene productos",
         footer: "<p>*Son campos obligatorios.</p>",
       });
+    } else{
+      history.push("/principal/confirmarEnvio/cliente");
     }
-    setShowModal(false);
-  };
+  }
 
   return (
     <>
@@ -240,7 +271,7 @@ const Cart = (props) => {
           {/* <Link to="/principal">ATRÁS</Link> */}
         </div>
       </div>
-      <Modal show={showModal} onHide={() => setShowModal(false)}>
+      <Modal id="modalAskSend" show={showModal} onHide={() => setShowModal(false)}>
         <div className="backgroudItem modalCombo">
           <Modal.Header closeButton>
             <Modal.Title>BOA TERRA</Modal.Title>
@@ -263,18 +294,13 @@ const Cart = (props) => {
             <div>
               <Button
                 variant="secondary"
+                /* onClick={hangleSaveSend} */
                 onClick={hangleSaveSend}
                 className="buttonClose"
               >
                 NO
               </Button>
-              <Button
-                variant="primary"
-                /* onClick={handleShowAmount} */
-                className="buttonAcept"
-              >
-                SI
-              </Button>
+              <Button variant="primary" className="buttonAcept cart-button_text" onClick={handleAsk}>SI</Button>
             </div>
           </Modal.Footer>
         </div>
