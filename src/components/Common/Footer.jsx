@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/static/index3.png";
-import instagram from "../assets/static/instagram_icon.png";
-import facebook from "../assets/static/Facebook_icon.png";
-import whatsapp from "../assets/static/Whatsapp_icon.png";
-import "../assets/styles/components/Footer.scss";
+import logo from "../../assets/static/index3.png";
+import instagram from "../../assets/static/instagram_icon.png";
+import facebook from "../../assets/static/Facebook_icon.png";
+import whatsapp from "../../assets/static/Whatsapp_icon.png";
+import "../../assets/styles/components/Footer.scss";
 
 const Footer = (props) => {
   const { isLogin } = props;

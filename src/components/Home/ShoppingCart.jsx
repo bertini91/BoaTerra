@@ -1,9 +1,9 @@
 import React from "react";
-import carritoLogo from "../assets/static/carritoCompra.png";
-import "../assets/styles/components/ShoppingCart.scss";
-import '../assets/styles/Cart.scss';
+import carritoLogo from "../../assets/static/carritoCompra.png";
+import "../../assets/styles/components/ShoppingCart.scss";
+import '../../assets/styles/Cart.scss';
 import ShoppingCartItem from "./ShoppingCartItem";
-import minimizar from "../assets/static/minimize.png";
+import minimizar from "../../assets/static/minimize.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CartIem from "../components/CartIem";
+import CartIem from "../components/Cart/CartIem";
 import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -55,7 +55,7 @@ const Cart = (props) => {
     } else {
       const newBuy = {
         fechaVen: fecha,
-        estadoVen: true,
+        estadoVen: false,
         vendedorVen: usuarioActivo,
         totalVen: total,
         productoVen: productosCarrito,

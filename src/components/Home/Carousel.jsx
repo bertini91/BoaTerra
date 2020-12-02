@@ -1,6 +1,6 @@
 import React from "react";
 import CarouselItem from "./CarouselItem";
-import "../assets/styles/components/Carousel.scss";
+import "../../assets/styles/components/Carousel.scss";
 
 const Carousel = (props) => {
   const {

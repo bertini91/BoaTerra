@@ -1,5 +1,5 @@
 import React from "react";
-import eliminarProducto from "../assets/static/usertrash.png";
+import eliminarProducto from "../../assets/static/usertrash.png";
 
 const CartIem = (props) => {
   const {

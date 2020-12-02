@@ -1,8 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo_search from "../assets/static/search_find.png";
-import "../assets/styles/components/Search.scss";
+import logo_search from "../../assets/static/search_find.png";
+import "../../assets/styles/components/Search.scss";
 
 const Search = (props) => {
   const { productos, setProductos, setRefrescar } = props;

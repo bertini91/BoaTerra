@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Carousel from "../components/Carousel";
-import Header from "../components/Header";
-import ListProductHome from "../components/ListProductHome";
-import Search from "../components/Search";
-import ShoppingCart from "../components/ShoppingCart";
-import carritoLogo from "../assets/static/carritoCompra.png";
+import Carousel from "../components/Home/Carousel";
+/* import Header from "../components/Header"; */
+import ListProductHome from "../components/Home/ListProductHome";
+import Search from "../components/Home/Search";
+import ShoppingCart from "../components/Home/ShoppingCart";
+/* import carritoLogo from "../assets/static/carritoCompra.png"; */
 import "../assets/styles/Home.scss";
 
 const Home = (props) => {

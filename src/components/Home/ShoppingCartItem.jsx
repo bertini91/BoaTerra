@@ -1,6 +1,6 @@
 import React from "react";
-import eliminarProducto from "../assets/static/usertrash.png";
-import "../assets/styles/components/ShoppingCart.scss";
+import eliminarProducto from "../../assets/static/usertrash.png";
+import "../../assets/styles/components/ShoppingCart.scss";
 
 const ShoppingCartItem = (props) => {
   const {

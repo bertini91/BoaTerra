@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
-import "../assets/styles/components/CarouselItem.scss";
+import "../../assets/styles/components/CarouselItem.scss";
 import { useEffect } from "react";
 
 const CarouselItem = (props) => {

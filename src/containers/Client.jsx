@@ -230,12 +230,13 @@ const Client = (props) => {
     const fecha = new Date();
     const newBuy = {
       fechaVen: fecha,
-      estadoVen: true,
+      estadoVen: false,
       vendedorVen: usuarioActivo,
       totalVen: total,
       productoVen: productosCarrito,
       mediopagoVen: medioPago,
       clienteVen: currentCliente,
+      detalleVen: document.getElementById("inputDescrip").value,
       direccionVen: document.getElementById("inputAddress").value, //Tomo este input porque es un campo que puede variar
     };
     console.log(newBuy);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer.jsx";
+import Header from "../components/Common/Header.jsx";
+import Footer from "../components/Common/Footer.jsx";
 import Login from "../containers/Login";
 import Home from "../containers/Home";
 import Cart from "../containers/Cart";
@@ -21,18 +21,48 @@ const App = () => {
   const [enviosHoy, setEnviosHoy] = useState([]);
   const [total, setTotal] = useState(0);
   const [medioPago, setMedioPago] = useState("");
-  
+  const [enviosPendientes, setEnviosPendientes] = useState([]); //envios pendientes
+  const [enviosEnCurso, setEnviosEnCurso] = useState([]); //envios en camino
+  const [refrescarVentEnv, setRefrescarVentEnv] = useState(true);
 
   useEffect(() => {
     if (refrescar) {
       consultarAPI();
       setRefrescar(false);
     }
-  }, [refrescar]);
+    if (refrescarVentEnv) {
+      consultarAPIVentEnv();
+      console.log("APP - useEffect - setRefrescarVentEnv " + refrescarVentEnv);
+      setRefrescarVentEnv(false);
+    }
+  }, [refrescar, refrescarVentEnv]);
 
   const clearSale = () => {
     setProductosCarrito([]);
     setTotal(0);
+  };
+
+  const consultarAPIVentEnv = async () => {
+    try {
+      /* const respuestaEnviosPend = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+      );
+      const resultadoEnvioPend = await respuestaEnviosPend.json();
+      console.log(resultadoEnvioPend);
+      setEnviosPendientes(resultadoEnvioPend); */
+      const respuestaVentPend = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
+      );
+      const resultadoVentPend = await respuestaVentPend.json();
+      setEnviosPendientes(resultadoVentPend);
+      const respuestaEnvCurso = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+      );
+      const resultadoEnvCurso = await respuestaEnvCurso.json();
+      setEnviosEnCurso(resultadoEnvCurso);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const consultarAPI = async () => {
@@ -68,6 +98,13 @@ const App = () => {
         "http://localhost:4000/api/boaTerra/principal/venta/cliente"
       );
       const resultadoCliente = await respuestaCli.json();
+
+      /* const respuestaEnviosPend = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+      );
+      const resultadoEnvioPend = await respuestaEnviosPend.json();
+      console.log(resultadoEnvioPend);
+      setEnviosPendientes(resultadoEnvioPend); */
       setProductos(resultadoProd);
       setCombos(resultadoCombos);
       setUsuarios(resultadoUsuarios);
@@ -79,7 +116,11 @@ const App = () => {
   return (
     /* Object.keys(usuarioActivo).length !== 0 ? ( */
     <Router>
-      <Header isLogin={isLogin} isAdmin={isAdmin}></Header>
+      <Header
+        isLogin={isLogin}
+        isAdmin={isAdmin}
+        setRefrescarVentEnv={setRefrescarVentEnv}
+      ></Header>
       <Switch>
         {/* Esta ruta de debo sacar al finalizar el proyecto, para no acceder si no estoy logueado */}
         <Route exact path="/">
@@ -127,12 +168,15 @@ const App = () => {
             medioPago={medioPago}
             setRefrescar={setRefrescar}
             clearSale={clearSale}
-            
           ></Client>
         </Route>
 
         <Route exact path="/envios">
-          <Sending></Sending>
+          <Sending
+            enviosPendientes={enviosPendientes}
+            enviosEnCurso={enviosEnCurso}
+            setRefrescarVentEnv={setRefrescarVentEnv}
+          ></Sending>
         </Route>
       </Switch>
       <Footer></Footer>

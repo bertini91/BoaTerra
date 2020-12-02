@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/static/index3.png";
-import "../assets/styles/components/Header.scss";
-import user_person from "../assets/static/user_person.png";
-import icon_option from "../assets/static/header-icon_option.png"
+import logo from "../../assets/static/index3.png";
+import "../../assets/styles/components/Header.scss";
+import user_person from "../../assets/static/user_person.png";
+import icon_option from "../../assets/static/header-icon_option.png"
 
 const Header = (props) => {
-  const { isLogin, isAdmin} = props;
+  const { isLogin, isAdmin, setRefrescarVentEnv} = props;
   return (
     <div className="header">
       {!isLogin ? (
@@ -17,7 +17,7 @@ const Header = (props) => {
               <li>
                 <button>
                   <Link>Productos</Link>
-                </button>{" "}
+                </button>
               </li>
               <li>
                 <button>
@@ -25,8 +25,8 @@ const Header = (props) => {
                 </button>
               </li>
               <li>
-                <button>
-                  <Link>Envios</Link>
+                <button onClick={setRefrescarVentEnv(true)}>
+                  <Link to="/envios">Envios</Link>
                 </button>
               </li>
             </div>

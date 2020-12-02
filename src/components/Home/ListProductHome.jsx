@@ -1,7 +1,7 @@
 import React from "react";
 import ListProductHomeItem from "./ListProductHomeItem";
 import { useState } from "react";
-import "../assets/styles/components/ListProductHome.scss";
+import "../../assets/styles/components/ListProductHome.scss";
 
 const ListProductHome = (props) => {
   const {
