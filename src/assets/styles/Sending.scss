@@ -1,0 +1,62 @@
+@import "./Apps.scss";
+
+.sending {
+  /* position: relative; */
+}
+
+.sending:after {
+    content: "";
+  display: block;
+  z-index: -1;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  background-image: url("../static/vegetales.png");
+  opacity: 0.2;
+}
+
+.sendingTitle {
+  text-align: center;
+  color: $font-color_brown;
+  margin: 20px 0px;
+  font-family: BigJohn;
+  font-size: 30px;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.sendingContentTable {
+  display: flex;
+  justify-content: center;
+}
+.sendingTable {
+  width: 85% !important;
+  background-color: white;
+  opacity: 0.7;
+}
+.sendingTable th,
+.sendingTable td {
+  color: $font-color_brown;
+}
+
+.sendingTable_buttons {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  margin: 0 5px;
+}
+
+.sendingTable_buttons img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.SendingListItem_name {
+  font-family: BigJohn;
+  text-transform: uppercase;
+  font-weight: bolder;
+}

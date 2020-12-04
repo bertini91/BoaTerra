@@ -1,11 +1,12 @@
 import React from "react";
 import Swal from "sweetalert2";
 import SendingList from "../components/Sending/SendingList";
+import '../assets/styles/Sending.scss';
 
 const Sending = (props) => {
-  const { enviosPendientes, enviosEnCurso, setRefrescarVentEnv } = props;
+  const { enviosPendientes/* , enviosEnCurso */, setRefrescar } = props;
 
-  const registrarEnvio = async (ventaEnvio, cadeteEnvio) => {
+ /*  const registrarEnvio = async (ventaEnvio, cadeteEnvio) => {
     try {
       const fecha = new Date();
       const env = {
@@ -24,12 +25,6 @@ const Sending = (props) => {
           body: JSON.stringify(env),
         }
       );
-      setRefrescarVentEnv(true);
-      /* if (resultado.status === 200) {
-        Swal.fire("Listo!", "El se cargó correctamente", "success");
-        clearSale();
-        setRefrescar(true);
-      } */
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -38,9 +33,9 @@ const Sending = (props) => {
         footer: "<p>No se pudo agregar el cliente.</p>",
       });
     }
-  };
+  }; */
 
-  const caminoEnvio = async (ventaEnvio, cadeteEnvio) => {
+  const caminoEnvio = async (ventaEnvio, cadeteEnvio, idEnvio) => {
           //DEBO TRAER EL ID DEL ENVIO PARA LA URL
     try {
       const fecha = new Date();
@@ -52,7 +47,7 @@ const Sending = (props) => {
       };
       /* /confirmar/:id */
       const resultado = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/envios/:id",
+        `http://localhost:4000/api/boaTerra/principal/envios/${idEnvio}`,
         {
           method: "PUT",
           headers: {
@@ -63,7 +58,7 @@ const Sending = (props) => {
       );
       if (resultado.status === 200) {
         Swal.fire("Listo!", "El pedido está en camino", "success");
-        setRefrescarVentEnv(true);
+        /* setRefrescar(true); */
       }
     } catch (error) {
       Swal.fire({
@@ -74,7 +69,7 @@ const Sending = (props) => {
       });
     }
   };
-  const entregarEnvio = async (ventaEnvio, cadeteEnvio) => {
+  const entregarEnvio = async (ventaEnvio, cadeteEnvio, idEnvio) => {
             //DEBO TRAER EL ID DEL ENVIO PARA LA URL
     try {
       const fecha = new Date();
@@ -86,7 +81,7 @@ const Sending = (props) => {
       };
       /* /confirmar/:id */
       const resultado = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/envios/confirmar/:id",
+        `http://localhost:4000/api/boaTerra/principal/envios/confirmar/${idEnvio}`,
         {
           method: "PUT",
           headers: {
@@ -97,7 +92,7 @@ const Sending = (props) => {
       );
       if (resultado.status === 200) {
         Swal.fire("Listo!", "El pedido fué entregado", "success");
-        setRefrescarVentEnv(true);
+        setRefrescar(true);
       }
     } catch (error) {
       Swal.fire({
@@ -109,12 +104,14 @@ const Sending = (props) => {
     }
   };
   return (
-    <div>
-      <p>ENVIOS</p>
+    <div className="sending pt-5">
+      <p className="sendingTitle">ENVIOS</p>
       <SendingList
         enviosPendientes={enviosPendientes}
-        enviosEnCurso={enviosEnCurso}
-        setRefrescarVentEnv={setRefrescarVentEnv}
+        /* enviosEnCurso={enviosEnCurso} */
+        setRefrescar={setRefrescar}
+        entregarEnvio={entregarEnvio}
+        caminoEnvio={caminoEnvio}
       ></SendingList>
     </div>
   );

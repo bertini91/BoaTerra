@@ -7,6 +7,7 @@ import Home from "../containers/Home";
 import Cart from "../containers/Cart";
 import Sending from "../containers/Sending";
 import Client from "../containers/Client";
+import Swal from "sweetalert2";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -23,47 +24,64 @@ const App = () => {
   const [medioPago, setMedioPago] = useState("");
   const [enviosPendientes, setEnviosPendientes] = useState([]); //envios pendientes
   const [enviosEnCurso, setEnviosEnCurso] = useState([]); //envios en camino
-  const [refrescarVentEnv, setRefrescarVentEnv] = useState(true);
+  /* const [refrescarVentEnv, setRefrescarVentEnv] = useState(true); */
 
   useEffect(() => {
     if (refrescar) {
       consultarAPI();
       setRefrescar(false);
     }
-    if (refrescarVentEnv) {
-      consultarAPIVentEnv();
+    /* if (refrescarVentEnv) {
       console.log("APP - useEffect - setRefrescarVentEnv " + refrescarVentEnv);
-      setRefrescarVentEnv(false);
-    }
-  }, [refrescar, refrescarVentEnv]);
+      consultarAPIVentEnv();
+      
+    } */
+  }, [/* refrescar, refrescarVentEnv */]);
 
   const clearSale = () => {
     setProductosCarrito([]);
     setTotal(0);
   };
 
-  const consultarAPIVentEnv = async () => {
+/*   const consultarAPIVentEnv = async () => {
     try {
-      /* const respuestaEnviosPend = await fetch(
+      const respuestaEnviosPend = await fetch(
         "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioPend = await respuestaEnviosPend.json();
       console.log(resultadoEnvioPend);
-      setEnviosPendientes(resultadoEnvioPend); */
+      setEnviosPendientes(resultadoEnvioPend);
+      console.log("en consultarAPIVentEnv")
       const respuestaVentPend = await fetch(
         "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
       );
+      if(respuestaVentPend.status === 200){
+        console.log("ESTADO 200")
+      }
+      if(respuestaVentPend.status===500){
+        console.log("ESTADO 500")
+      }
       const resultadoVentPend = await respuestaVentPend.json();
       setEnviosPendientes(resultadoVentPend);
+      console.log(enviosPendientes);
       const respuestaEnvCurso = await fetch(
         "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvCurso = await respuestaEnvCurso.json();
       setEnviosEnCurso(resultadoEnvCurso);
+      
     } catch (error) {
+      //Enviar a 404
       console.log(error);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Ocurrió un error de conexion!",
+        footer: error,
+      });
     }
-  };
+    setRefrescarVentEnv(false);
+  }; */
 
   const consultarAPI = async () => {
     try {
@@ -109,7 +127,23 @@ const App = () => {
       setCombos(resultadoCombos);
       setUsuarios(resultadoUsuarios);
       setClientes(resultadoCliente);
+
+      const respuestaEnviosPend = await fetch(
+        /* "http://localhost:4000/api/boaTerra/principal/venta/pendientes" */
+        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+      );
+      const resultadoEnvioProceso = await respuestaEnviosPend.json();
+      console.log(resultadoEnvioProceso);
+      setEnviosPendientes(resultadoEnvioProceso);
+
+      /* const respuestaVentPend = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
+      );
+      const resultadoVentPend = await respuestaVentPend.json();
+      setEnviosPendientes(resultadoVentPend); */
+      console.log(enviosPendientes);
     } catch (error) {
+      //Enviar a 404
       console.log(error);
     }
   };
@@ -119,7 +153,7 @@ const App = () => {
       <Header
         isLogin={isLogin}
         isAdmin={isAdmin}
-        setRefrescarVentEnv={setRefrescarVentEnv}
+        setRefrescar={setRefrescar}
       ></Header>
       <Switch>
         {/* Esta ruta de debo sacar al finalizar el proyecto, para no acceder si no estoy logueado */}
@@ -174,8 +208,8 @@ const App = () => {
         <Route exact path="/envios">
           <Sending
             enviosPendientes={enviosPendientes}
-            enviosEnCurso={enviosEnCurso}
-            setRefrescarVentEnv={setRefrescarVentEnv}
+            /* enviosEnCurso={enviosEnCurso} */
+            setRefrescar={setRefrescar}
           ></Sending>
         </Route>
       </Switch>

@@ -6,7 +6,7 @@ import user_person from "../../assets/static/user_person.png";
 import icon_option from "../../assets/static/header-icon_option.png"
 
 const Header = (props) => {
-  const { isLogin, isAdmin, setRefrescarVentEnv} = props;
+  const { isLogin, isAdmin, setRefrescar} = props;
   return (
     <div className="header">
       {!isLogin ? (
@@ -25,7 +25,7 @@ const Header = (props) => {
                 </button>
               </li>
               <li>
-                <button onClick={setRefrescarVentEnv(true)}>
+                <button onClick={setRefrescar(true)}>
                   <Link to="/envios">Envios</Link>
                 </button>
               </li>

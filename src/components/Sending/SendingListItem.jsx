@@ -4,19 +4,22 @@ import IconSeeSending from "../../assets/static/verenvio.png";
 const SendingListItem = (props) => {
   const { envio, index } = props;
   return (
-    <div>
-      <p>{index}</p>
-      <p>{`${envio.ventaEnvio.clienteVen.nombreCli} ${envio.ventaEnvio.clienteVen.apellidoCli}`}</p>
-      <p>{envio.ventaEnvio.clienteVen.detalleCli}</p>
-      <div>
-        <button>
-          <img src={IconSeeSending} alt="VER" />
-        </button>
-        <button>
-          <img src={IconSending} alt="ENVIAR" />
-        </button>
-      </div>
-    </div>
+    <tr>
+      <td>{index}</td>
+      <td className="SendingListItem_name">{`${envio.ventaEnvio.clienteVen.nombreCli} ${envio.ventaEnvio.clienteVen.apellidoCli}`}</td>
+      {/* <p>{envio.clienteVen.detalleCli}</p> */}
+      <td>{envio.estadoEnvio}</td>
+      <td>
+        <div className="d-flex">
+          <button className="sendingTable_buttons">
+            <img src={IconSeeSending} alt="VER" />
+          </button>
+          <button className="sendingTable_buttons">
+            <img src={IconSending} alt="ENVIAR" />
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 };
 
