@@ -1,7 +1,16 @@
 @import "./Apps.scss";
 
-.sending {
+.sendingg {
   /* position: relative; */
+  padding: 10px;
+       min-height: -webkit-calc(100% - 100px);     /* Chrome */
+       min-height: -moz-calc(100% - 100px);     /* Firefox */
+       min-height: calc(100% - 100px);     /* native */
+}
+
+.sending{
+  height: 100%;
+  margin-bottom: 35px;
 }
 
 .sending:after {
@@ -59,4 +68,34 @@
   font-family: BigJohn;
   text-transform: uppercase;
   font-weight: bolder;
+}
+
+
+.sendingCadet{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: BigJohn;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  /* color: rgb(51, 189, 24); */
+  margin: 15px 0;
+  border: none;
+  background-color: transparent;
+  width: 100%;
+  opacity: 0.90;
+  border-radius: 8px;
+  padding: 5px 0;
+}
+
+.sendingCadet:hover{
+  font-weight: bolder;
+  font-size: 23px;
+}
+
+.sendingCadet:focus{
+  opacity: 1;
+  font-size: 23px;
+  border-style: dashed;
 }

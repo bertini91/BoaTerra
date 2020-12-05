@@ -25,7 +25,7 @@ const Header = (props) => {
                 </button>
               </li>
               <li>
-                <button onClick={setRefrescar(true)}>
+                <button /* onClick={setRefrescar(true)} */>
                   <Link to="/envios">Envios</Link>
                 </button>
               </li>

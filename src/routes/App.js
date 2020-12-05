@@ -14,6 +14,7 @@ const App = () => {
   const [combos, setCombos] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [clientes, setClientes] = useState([]);
+  const [cadetes, setCadetes] = useState([]);
   const [refrescar, setRefrescar] = useState(true);
   const [usuarioActivo, setUsuarioActivo] = useState({});
   const [isLogin, setIsLogin] = useState(true);
@@ -29,6 +30,7 @@ const App = () => {
   useEffect(() => {
     if (refrescar) {
       consultarAPI();
+      console.log("Refrescar en useEffect App.js "+refrescar);
       setRefrescar(false);
     }
     /* if (refrescarVentEnv) {
@@ -36,7 +38,7 @@ const App = () => {
       consultarAPIVentEnv();
       
     } */
-  }, [/* refrescar, refrescarVentEnv */]);
+  }, [refrescar/* , refrescarVentEnv */]);
 
   const clearSale = () => {
     setProductosCarrito([]);
@@ -136,12 +138,15 @@ const App = () => {
       console.log(resultadoEnvioProceso);
       setEnviosPendientes(resultadoEnvioProceso);
 
+      const respuestaCadete = await fetch("http://localhost:4000/api/boaTerra/principal/cadetes");
+      const resultadoCadete = await respuestaCadete.json();
+      setCadetes(resultadoCadete);
       /* const respuestaVentPend = await fetch(
         "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
       );
       const resultadoVentPend = await respuestaVentPend.json();
       setEnviosPendientes(resultadoVentPend); */
-      console.log(enviosPendientes);
+      /* console.log(enviosPendientes); */
     } catch (error) {
       //Enviar a 404
       console.log(error);
@@ -210,6 +215,7 @@ const App = () => {
             enviosPendientes={enviosPendientes}
             /* enviosEnCurso={enviosEnCurso} */
             setRefrescar={setRefrescar}
+            cadetes={cadetes}
           ></Sending>
         </Route>
       </Switch>

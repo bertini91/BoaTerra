@@ -1,5 +1,7 @@
+@import "./Apps.scss";
 .home {
   position: relative;
+  padding-bottom: inherit;
 }
 .home:after {
   content: "";
@@ -19,4 +21,3 @@
   /* align-items: center;
   align-content: center; */
 }
-
