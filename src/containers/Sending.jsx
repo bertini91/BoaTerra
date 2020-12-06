@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import SendingList from "../components/Sending/SendingList";
 import SendingModal from "../components/Sending/SendingModal";
 import "../assets/styles/Sending.scss";
+import SendingModalDetail from "../components/Sending/SendingModalDetail";
 
 const Sending = (props) => {
   const {
@@ -11,10 +12,21 @@ const Sending = (props) => {
     cadetes,
   } = props;
 
-  const handleClose = () => setShow(false);
+  
   const [show, setShow] = useState(false);
-  const [cadetSelected, setCadetSelected] = useState({})
-  const [actuallySend, setActuallySend] = useState({})
+  const [showDetail, setShowDetail] = useState(false);
+  const [cadetSelected, setCadetSelected] = useState({});
+  const [actuallySend, setActuallySend] = useState({});
+  const handleClose = () => setShow(false);
+  const handleCloseDetail = ()=>{
+    setShowDetail(false);
+  }
+
+  const handleShowDetail = (envio) =>{
+    console.log(envio);
+    setActuallySend(envio);
+    setShowDetail(true);
+  }
 
   const operationSend = (envio) => {
     if (envio.estadoEnvio === "Preparacion") {
@@ -29,10 +41,10 @@ const Sending = (props) => {
     }
   };
 
-  const processSend = ()=>{
+  const processSend = () => {
     setShow(false);
-    caminoEnvio(actuallySend.ventaEnvio, actuallySend._id)
-  }
+    caminoEnvio(actuallySend.ventaEnvio, actuallySend._id);
+  };
 
   const caminoEnvio = async (ventaEnvio, idEnvio) => {
     //DEBO TRAER EL ID DEL ENVIO PARA LA URL
@@ -109,21 +121,31 @@ const Sending = (props) => {
           enviosPendientes={enviosPendientes}
           /* enviosEnCurso={enviosEnCurso} */
           setRefrescar={setRefrescar}
-/*           entregarEnvio={entregarEnvio}
+          /*           entregarEnvio={entregarEnvio}
           caminoEnvio={caminoEnvio} */
           cadetes={cadetes}
           operationSend={operationSend}
+          setShowDetail={setShowDetail}
+          handleShowDetail={handleShowDetail}
         ></SendingList>
       </div>
-      {show ? 
-      <SendingModal
-        handleClose={handleClose}
-        show={show}
-        handleClose ={handleClose}
-        cadetes={cadetes}
-        setCadetSelected={setCadetSelected}
-        processSend={processSend}
-      ></SendingModal> :null}
+      {show ? (
+        <SendingModal
+          handleClose={handleClose}
+          show={show}
+          cadetes={cadetes}
+          setCadetSelected={setCadetSelected}
+          processSend={processSend}
+        ></SendingModal>
+      ) : null}
+      {showDetail ? (
+        <SendingModalDetail
+          showDetail={showDetail}
+          handleCloseDetail={handleCloseDetail}
+          actuallySend={actuallySend}
+          setShowDetail={setShowDetail}
+        ></SendingModalDetail>
+      ) : null}
     </>
   );
 };

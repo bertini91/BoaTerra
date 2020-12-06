@@ -13,15 +13,15 @@ const SendingList = (props) => {
     enviosPendientes,
     /* enviosEnCurso, */
     setRefrescar,
-/*     entregarEnvio,
+    /*     entregarEnvio,
     caminoEnvio, */
     cadetes,
-    operationSend
+    operationSend,
+    setShowDetail,
+    handleShowDetail
   } = props;
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
 
   /* const operationSend = (envio, id) => {
     if (envio.estadoEnvio === "Preparacion") {
@@ -41,6 +41,7 @@ const SendingList = (props) => {
             <tr>
               <th>#</th>
               <th>CLIENTE</th>
+              <th>DIRECCIÓN</th>
               <th>ESTADO</th>
               <th>OPCIONES</th>
             </tr>
@@ -52,16 +53,17 @@ const SendingList = (props) => {
                 /* _id={envio._id} */
                 envio={envio}
                 index={index}
+                setShowDetail={setShowDetail}
                 /* entregarEnvio={entregarEnvio}
                 caminoEnvio={caminoEnvio} */
                 operationSend={operationSend}
+                handleShowDetail={handleShowDetail}
                 /* cadetes={cadetes} */
               ></SendingListItem>
             ))}
           </tbody>
         </Table>
       </div>
-      
     </>
   );
 };
