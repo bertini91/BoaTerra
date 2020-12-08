@@ -8,6 +8,8 @@ import Cart from "../containers/Cart";
 import Sending from "../containers/Sending";
 import Client from "../containers/Client";
 import Swal from "sweetalert2";
+import Product from "../containers/Product.jsx";
+import ClientRectList from "../containers/ClientList";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -30,7 +32,7 @@ const App = () => {
   useEffect(() => {
     if (refrescar) {
       consultarAPI();
-      console.log("Refrescar en useEffect App.js "+refrescar);
+      /* console.log("Refrescar en useEffect App.js " + refrescar); */
       setRefrescar(false);
     }
     /* if (refrescarVentEnv) {
@@ -38,14 +40,14 @@ const App = () => {
       consultarAPIVentEnv();
       
     } */
-  }, [refrescar/* , refrescarVentEnv */]);
+  }, [refrescar /* , refrescarVentEnv */]);
 
   const clearSale = () => {
     setProductosCarrito([]);
     setTotal(0);
   };
 
-/*   const consultarAPIVentEnv = async () => {
+  /*   const consultarAPIVentEnv = async () => {
     try {
       const respuestaEnviosPend = await fetch(
         "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
@@ -135,10 +137,12 @@ const App = () => {
         "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioProceso = await respuestaEnviosPend.json();
-      console.log(resultadoEnvioProceso);
+      /* console.log(resultadoEnvioProceso); */
       setEnviosPendientes(resultadoEnvioProceso);
 
-      const respuestaCadete = await fetch("http://localhost:4000/api/boaTerra/principal/cadetes");
+      const respuestaCadete = await fetch(
+        "http://localhost:4000/api/boaTerra/principal/cadetes"
+      );
       const resultadoCadete = await respuestaCadete.json();
       setCadetes(resultadoCadete);
       /* const respuestaVentPend = await fetch(
@@ -217,6 +221,21 @@ const App = () => {
             setRefrescar={setRefrescar}
             cadetes={cadetes}
           ></Sending>
+        </Route>
+        <Route exact path="/productos">
+          <Product
+            productos={productos}
+            setProductos={setProductos}
+            setRefrescar={setRefrescar}
+          ></Product>
+        </Route>
+        <Route exact path="/clientes">
+          <ClientRectList
+            clientes={clientes}
+            setClientes={setClientes}
+            setRefrescar={setRefrescar}
+            usuarioActivo={usuarioActivo}
+          ></ClientRectList>
         </Route>
       </Switch>
       <Footer></Footer>

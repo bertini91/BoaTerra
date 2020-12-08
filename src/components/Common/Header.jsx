@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/static/index3.png";
 import "../../assets/styles/components/Header.scss";
+import logo from "../../assets/static/index3.png";
 import user_person from "../../assets/static/user_person.png";
 import icon_option from "../../assets/static/header-icon_option.png"
+
 
 const Header = (props) => {
   const { isLogin, isAdmin, setRefrescar} = props;
@@ -16,12 +17,12 @@ const Header = (props) => {
             <div className="commonButtons">
               <li>
                 <button>
-                  <Link>Productos</Link>
+                  <Link to="/productos">Productos</Link>
                 </button>
               </li>
               <li>
                 <button>
-                  <Link>Clientes</Link>
+                  <Link to="/clientes">Clientes</Link>
                 </button>
               </li>
               <li>
