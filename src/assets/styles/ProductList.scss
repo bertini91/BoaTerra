@@ -25,6 +25,63 @@
   text-decoration: underline;
 }
 
+.productContainerOptions {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10% 0 10%;
+}
+.productContainerOptions_button {
+  margin: 30px 0 30px 0;
+  font-size: 25px;
+  color: #e1e9de;
+}
+
+/* CODIGO DE PESTAÑAS */
+
+.tab {
+  overflow: hidden;
+  /* border: 1px solid #ccc; */
+  /* background-color: #f1f1f1; */
+  margin: 0 10% 0 10%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  /* background-color: inherit; */
+  background-color: white;
+  opacity: 0.7;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  /* font-size: 17px; */
+  font-size: 20px;
+  font-weight: 900;
+  color: #6f2c19;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button:active {
+  background-color: $back-color_header-footer;
+}
+
+/* Style the tab content */
+/* .tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+} */
+
+/* CODIGO DE PESTAÑAS */
+
 .productTable {
   width: 80% !important;
   background-color: white;
@@ -42,6 +99,15 @@
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   justify-content: center;
+}
+.productListItem_button {
+  background-color: transparent;
+  border: none;
+}
+.productListItem_button img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
 }
 /* position: relative;
 -ms-flex: 1 1 auto;

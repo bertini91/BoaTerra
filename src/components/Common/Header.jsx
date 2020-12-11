@@ -4,10 +4,16 @@ import "../../assets/styles/components/Header.scss";
 import logo from "../../assets/static/index3.png";
 import user_person from "../../assets/static/user_person.png";
 import icon_option from "../../assets/static/header-icon_option.png"
+import { useState } from "react";
+import { useEffect } from "react";
 
 
 const Header = (props) => {
   const { isLogin, isAdmin, setRefrescar} = props;
+  const [linkImg, setLinkImg] = useState("/principal")
+  useEffect(()=>{
+    isLogin ? setLinkImg("/"): setLinkImg("/principal")
+  },[isLogin])
   return (
     <div className="header">
       {!isLogin ? (
@@ -34,7 +40,7 @@ const Header = (props) => {
           </ul>
         </div>
       ) : null}
-      <Link to="/principal">
+      <Link to={linkImg}>
         <img id="header_logo" src={logo} alt="Logo BoaTerra"></img>
       </Link>
 

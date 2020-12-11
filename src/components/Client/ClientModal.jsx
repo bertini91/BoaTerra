@@ -143,7 +143,7 @@ const ClientModal = (props) => {
     <>
       <div className="fade modal-backdrop show" style={styleModal}></div>
       <div className="clientModal modal-backdrop" style={styleModal}>
-        <div className="clientModalContent">
+        <div className="contentModalNew">
           <div className="d-flex justify-content-end mt-2">
             <button
               className="clientModal_buttonClose"

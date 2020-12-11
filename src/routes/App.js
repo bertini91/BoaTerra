@@ -227,6 +227,9 @@ const App = () => {
             productos={productos}
             setProductos={setProductos}
             setRefrescar={setRefrescar}
+            tipoUsuario = {usuarioActivo.permisoUsu}
+            combos={combos}
+            setCombos={setCombos}
           ></Product>
         </Route>
         <Route exact path="/clientes">

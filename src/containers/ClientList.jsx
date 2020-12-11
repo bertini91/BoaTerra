@@ -58,7 +58,7 @@ const ClientList = (props) => {
         if (resultado.status === 200) {
           Swal.fire(
             "Listo!",
-            "El se eliminó correctamente el Cliente",
+            "Se eliminó correctamente el Cliente",
             "success"
           );
           setRefrescar(true); 

@@ -16,6 +16,7 @@ const Login = (props) => {
   useEffect(() => {
     setIsLogin(true);
     setIsAdmin(false);
+    setUsuarioActivo({})
   }, []);
 
   const consultarDatos = (e) => {
