@@ -179,6 +179,7 @@ const ProductModalNew = (props) => {
                   placeholder="Ingrese el nombre"
                   className="modalNewProduct_input"
                   onKeyDown={handleEnter}
+                  autoComplete="off"
                   id="inputName"
                   required
                 />
@@ -191,6 +192,7 @@ const ProductModalNew = (props) => {
                   className="modalNewProduct_input"
                   onKeyDown={handleEnter}
                   id="inputPrice"
+                  autoComplete="off"
                   required
                 />
               </div>
@@ -202,6 +204,7 @@ const ProductModalNew = (props) => {
                   className="modalNewProduct_input"
                   onKeyDown={handleEnter}
                   id="inputDetail"
+                  autoComplete="off"
                   required
                 />
               </div>

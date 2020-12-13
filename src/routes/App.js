@@ -8,7 +8,7 @@ import Cart from "../containers/Cart";
 import Sending from "../containers/Sending";
 import Client from "../containers/Client";
 import Swal from "sweetalert2";
-import Product from "../containers/Product.jsx";
+import ProductList from "../containers/ProductList.jsx";
 import ClientRectList from "../containers/ClientList";
 
 const App = () => {
@@ -223,14 +223,14 @@ const App = () => {
           ></Sending>
         </Route>
         <Route exact path="/productos">
-          <Product
+          <ProductList
             productos={productos}
             setProductos={setProductos}
             setRefrescar={setRefrescar}
             tipoUsuario = {usuarioActivo.permisoUsu}
             combos={combos}
             setCombos={setCombos}
-          ></Product>
+          ></ProductList>
         </Route>
         <Route exact path="/clientes">
           <ClientRectList

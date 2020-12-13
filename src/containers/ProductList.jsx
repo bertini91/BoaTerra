@@ -9,8 +9,9 @@ import { useEffect } from "react";
 import ProductListProd from "../components/Product/ProductListProd";
 import ProductListCom from "../components/Product/ProductListCom";
 import ProductModalNew from "../components/Product/ProductModalNew";
+import ProductModalCombo from "../components/Product/ProductModalCombo";
 
-const Product = (props) => {
+const ProductList = (props) => {
   const {
     productos,
     setProductos,
@@ -21,6 +22,8 @@ const Product = (props) => {
   } = props;
   const [typeOpenTable, setTypeOpenTable] = useState(true); //true = Productos; false = combos
   const [showModal, setShowModal] = useState(false);
+  const [showModalCombo, setShowModalCombo] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const resultProd = [];
@@ -38,6 +41,7 @@ const Product = (props) => {
     handleSearchCategories();
     setShowModal(true);
   };
+  const handleOpenModalNewcombo = () => {};
 
   const handleSearchCategories = () => {
     for (let producto of productos) {
@@ -98,7 +102,10 @@ const Product = (props) => {
               onChange={handleSearch}
             />
           </div>
-          <button className="productList_button productContainerOptions_button">
+          <button
+            className="productList_button productContainerOptions_button"
+            onClick={() => setShowModalCombo(true)}
+          >
             Nuevo Combo
           </button>
         </div>
@@ -163,8 +170,17 @@ const Product = (props) => {
         setCategories={setCategories}
         setRefrescar={setRefrescar}
       ></ProductModalNew>
+      <ProductModalCombo
+        setRefrescar={setRefrescar}
+        setCombos={setCombos}
+        productos={productos}
+        showModalCombo={showModalCombo}
+        setShowModalCombo={setShowModalCombo}
+        selectedProducts={selectedProducts}
+        setSelectedProducts={setSelectedProducts}
+      ></ProductModalCombo>
     </div>
   );
 };
 
-export default Product;
+export default ProductList;
