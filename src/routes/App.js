@@ -10,6 +10,7 @@ import Client from "../containers/Client";
 import Swal from "sweetalert2";
 import ProductList from "../containers/ProductList.jsx";
 import ClientRectList from "../containers/ClientList";
+import Users from "../containers/Users.jsx";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -239,6 +240,9 @@ const App = () => {
             setRefrescar={setRefrescar}
             usuarioActivo={usuarioActivo}
           ></ClientRectList>
+        </Route>
+        <Route exact path ="/administracion/usuarios">
+          <Users usuarioActivo={usuarioActivo} usuarios={usuarios} cadetes={cadetes} setRefrescar={setRefrescar}></Users>
         </Route>
       </Switch>
       <Footer></Footer>

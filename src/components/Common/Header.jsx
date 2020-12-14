@@ -3,22 +3,23 @@ import { Link } from "react-router-dom";
 import "../../assets/styles/components/Header.scss";
 import logo from "../../assets/static/index3.png";
 import user_person from "../../assets/static/user_person.png";
-import icon_option from "../../assets/static/header-icon_option.png"
+import icon_option from "../../assets/static/header-icon_option.png";
 import { useState } from "react";
 import { useEffect } from "react";
 
-
 const Header = (props) => {
-  const { isLogin, isAdmin, setRefrescar} = props;
-  const [linkImg, setLinkImg] = useState("/principal")
-  useEffect(()=>{
-    isLogin ? setLinkImg("/"): setLinkImg("/principal")
-  },[isLogin])
+  const { isLogin, isAdmin, setRefrescar } = props;
+  const [linkImg, setLinkImg] = useState("/principal");
+  useEffect(() => {
+    isLogin ? setLinkImg("/") : setLinkImg("/principal");
+  }, [isLogin]);
   return (
     <div className="header">
       {!isLogin ? (
         <div className="sectionOption">
-          <button className="buttonOption"><img src={icon_option} className="img_option" alt="" srcSet=""/></button>
+          <button className="buttonOption">
+            <img src={icon_option} className="img_option" alt="" srcSet="" />
+          </button>
           <ul className="ulOptionHeader">
             <div className="commonButtons">
               <li>
@@ -44,7 +45,11 @@ const Header = (props) => {
         <img id="header_logo" src={logo} alt="Logo BoaTerra"></img>
       </Link>
 
-      {isLogin ? <h1 id="headerTitle" className="title">Bienvenidos</h1> : null}
+      {isLogin ? (
+        <h1 id="headerTitle" className="title">
+          Bienvenidos
+        </h1>
+      ) : null}
       <div className="d-flex">
         {isAdmin ? (
           <button className="closeBox_perfil-nav">
@@ -68,15 +73,26 @@ const Header = (props) => {
                     <li>
                       <Link to="">Mis Datos</Link>
                     </li>
-                    <li className="closeBox_perfil"><Link>Cierre de Caja</Link></li>
+                    <li className="closeBox_perfil">
+                      <Link>Cierre de Caja</Link>
+                    </li>
                     <li>
                       <Link to="">Control Caja</Link>
                     </li>
                     <li>
-                      <Link to="">Usuarios</Link>
+                      <Link to="/administracion/usuarios">Personal</Link>
                     </li>
                   </>
-                ) : null}
+                ) : (
+                  <>
+                    <li>
+                      <Link to="">Mis Datos</Link>
+                    </li>
+                    <li>
+                      <Link to="/administracion/usuarios">Cadetes</Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link to="/">Cerrar Sesion</Link>
                 </li>

@@ -1,0 +1,158 @@
+@import "./Apps.scss";
+
+.users {
+  position: relative;
+  padding-bottom: inherit;
+  padding-top: 35px;
+}
+
+.users:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../static/vegetales.png");
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+.users_title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 900;
+  color: $font-color_brown;
+  text-decoration: underline;
+}
+.usersContainerOptions {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10% 0 10%;
+}
+
+.usersContainerOptions_button {
+  margin: 30px 0 30px 0;
+  font-size: 25px;
+  color: #e1e9de;
+  border-radius: 6px;
+  border: solid 1px #707070;
+  background-color: #619a5d;
+  font-family: BigJohn;
+}
+
+.usersContainerOptions_button a {
+  font-size: 34px;
+  color: #e1e9de;
+}
+
+.usersConteiner_Table {
+  position: relative;
+  display: flex;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+.usersTable {
+  width: 80% !important;
+  background-color: white;
+  opacity: 0.7;
+  color: $font-color_green;
+  padding: 0 5px;
+  margin: 5px 0 30px 0;
+}
+
+.usersTable th {
+  padding-left: 5px;
+}
+
+.userTab {
+  overflow: hidden;
+  margin: 0 10% 0 10%;
+}
+
+/* Style the buttons inside the tab */
+.userTab button {
+  /* background-color: inherit; */
+  background-color: white;
+  opacity: 0.7;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  /* font-size: 17px; */
+  font-size: 20px;
+  font-weight: 900;
+  color: #6f2c19;
+}
+
+/* Change background color of buttons on hover */
+.userTab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.userTab button:active {
+  background-color: $back-color_header-footer;
+}
+
+.user_button {
+  border-radius: 6px;
+  border: solid 1px #707070;
+  background-color: #619a5d;
+  font-family: BigJohn;
+}
+
+.user_button a {
+  font-size: 34px;
+  color: #e1e9de;
+}
+
+.table td {
+  vertical-align: inherit !important;
+}
+
+.userListItem_button {
+  background-color: transparent;
+  border: none;
+}
+.userListItem_button img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+}
+
+.msjOptional {
+  font-size: 12px;
+  font-weight: bold;
+  color: $font-color_green;
+  text-align: left;
+}
+
+.msjError {
+  font-size: 15px;
+  font-weight: bolder;
+  color: #cd4400;
+  text-align: left;
+  display: none;
+}
+
+.userModal_permitText {
+  color: $font-color_green;
+  font-size: 18px;
+  padding: 0px 5px;
+  position: relative;
+}
+
+.tableCadet_tel,
+.tableCadet_tel:hover {
+  color: $font-color_green;
+}
+.tableCadet_tel:hover {
+  font-size: 1rem;
+  font-weight: bold;
+}
