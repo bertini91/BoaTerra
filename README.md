@@ -36,7 +36,7 @@ La página se volverá a cargar si realiza modificaciones. También verá cualqu
 
 ## URL publico para clonar el proyecto de github:
 
-Frontend-URL:https://github.com/rserrano20/therollingnews
+Frontend-URL:https://github.com/bertini91/BoaTerra.git
 
 Backend-URL:https://github.com/bertini91/TheRollingNew-Backend
 
