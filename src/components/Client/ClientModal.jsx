@@ -80,7 +80,7 @@ const ClientModal = (props) => {
     };
     try {
       const resultado = await fetch(
-        `http://localhost:4000/api/boaterra/administracion/clientes/actualizar/${clientEdit._id}`,
+        `https://boa-terra.herokuapp.com/api/boaterra/administracion/clientes/actualizar/${clientEdit._id}`,
         {
           method: "PUT",
           headers: {
@@ -117,7 +117,7 @@ const ClientModal = (props) => {
 
     try {
       const resultado = await fetch(
-        "http://localhost:4000/api/boaterra/administracion/clientes/",
+        "https://boa-terra.herokuapp.com/api/boaterra/administracion/clientes/",
         {
           method: "POST",
           headers: {

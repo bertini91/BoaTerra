@@ -44,7 +44,7 @@ const CadetModal = (props) => {
       };
       console.log(newCadet);
       const resultado = await fetch(
-        "http://localhost:4000/api/boaterra/administracion/cadetes/nuevo",
+        "https://boa-terra.herokuapp.com/api/boaterra/administracion/cadetes/nuevo",
         {
           method: "POST",
           headers: {

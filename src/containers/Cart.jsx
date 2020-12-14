@@ -64,7 +64,7 @@ const Cart = (props) => {
       console.log(newBuy);
       try {
         const resultado = await fetch(
-          "http://localhost:4000/api/boaTerra/principal/venta",
+          "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta",
           {
             method: "POST",
             headers: {

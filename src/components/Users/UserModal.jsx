@@ -53,7 +53,7 @@ const UserModal = (props) => {
         };
         console.log(newUser);
         const resultado = await fetch(
-          "http://localhost:4000/api/boaterra/administracion/usuarios/",
+          "https://boa-terra.herokuapp.com/api/boaterra/administracion/usuarios/",
           {
             method: "POST",
             headers: {

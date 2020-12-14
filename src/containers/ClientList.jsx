@@ -47,7 +47,7 @@ const ClientList = (props) => {
     if(usuarioActivo.permisoUsu){
       try {
         const resultado = await fetch(
-          `http://localhost:4000/api/boaterra/administracion/clientes/eliminar/${_id}`,
+          `https://boa-terra.herokuapp.com/api/boaterra/administracion/clientes/eliminar/${_id}`,
           {
             method: "DELETE",
             headers: {

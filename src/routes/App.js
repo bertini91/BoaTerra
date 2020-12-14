@@ -7,7 +7,6 @@ import Home from "../containers/Home";
 import Cart from "../containers/Cart";
 import Sending from "../containers/Sending";
 import Client from "../containers/Client";
-import Swal from "sweetalert2";
 import ProductList from "../containers/ProductList.jsx";
 import ClientRectList from "../containers/ClientList";
 import Users from "../containers/Users.jsx";
@@ -51,14 +50,14 @@ const App = () => {
   /*   const consultarAPIVentEnv = async () => {
     try {
       const respuestaEnviosPend = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioPend = await respuestaEnviosPend.json();
       console.log(resultadoEnvioPend);
       setEnviosPendientes(resultadoEnvioPend);
       console.log("en consultarAPIVentEnv")
       const respuestaVentPend = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes"
       );
       if(respuestaVentPend.status === 200){
         console.log("ESTADO 200")
@@ -70,7 +69,7 @@ const App = () => {
       setEnviosPendientes(resultadoVentPend);
       console.log(enviosPendientes);
       const respuestaEnvCurso = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvCurso = await respuestaEnvCurso.json();
       setEnviosEnCurso(resultadoEnvCurso);
@@ -91,7 +90,7 @@ const App = () => {
   const consultarAPI = async () => {
     try {
       const respuestaProd = await fetch(
-        "http://localhost:4000/api/boaTerra/principal"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal"
       );
       /* const respuestaProd = await fetch(
         "https://boa-terra.herokuapp.com/api/boaTerra/principal"
@@ -100,11 +99,11 @@ const App = () => {
       const resultadoProd = await respuestaProd.json();
       /* console.log(resultadoProd); */
       const respuestaCombo = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/combos"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/combos"
       );
       const resultadoCombos = await respuestaCombo.json();
       const respuestaUsuarios = await fetch(
-        "http://localhost:4000/api/boaTerra/"
+        "https://boa-terra.herokuapp.com/api/boaTerra/"
       ); //codigo 11000 me devuelve de error si los datos ya estan almacenados
       const resultadoUsuarios = await respuestaUsuarios.json();
       resultadoProd.sort((a, b) => {
@@ -118,12 +117,12 @@ const App = () => {
       });
 
       const respuestaCli = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/venta/cliente"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/cliente"
       );
       const resultadoCliente = await respuestaCli.json();
 
       /* const respuestaEnviosPend = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioPend = await respuestaEnviosPend.json();
       console.log(resultadoEnvioPend);
@@ -134,20 +133,20 @@ const App = () => {
       setClientes(resultadoCliente);
 
       const respuestaEnviosPend = await fetch(
-        /* "http://localhost:4000/api/boaTerra/principal/venta/pendientes" */
-        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
+        /* "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes" */
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioProceso = await respuestaEnviosPend.json();
       /* console.log(resultadoEnvioProceso); */
       setEnviosPendientes(resultadoEnvioProceso);
 
       const respuestaCadete = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/cadetes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/cadetes"
       );
       const resultadoCadete = await respuestaCadete.json();
       setCadetes(resultadoCadete);
       /* const respuestaVentPend = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/venta/pendientes"
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes"
       );
       const resultadoVentPend = await respuestaVentPend.json();
       setEnviosPendientes(resultadoVentPend); */

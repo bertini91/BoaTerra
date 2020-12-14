@@ -9,7 +9,7 @@ const CadetList = (props) => {
   const handleDeleteCadet = async (_id) => {
     try {
       const resultado = await fetch(
-        `http://localhost:4000/api/boaterra/administracion/cadetes/${_id}`,
+        `https://boa-terra.herokuapp.com/api/boaterra/administracion/cadetes/${_id}`,
         {
           method: "DELETE",
           headers: {

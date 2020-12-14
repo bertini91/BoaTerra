@@ -58,7 +58,7 @@ const Sending = (props) => {
       };
       /* /confirmar/:id */
       const resultado = await fetch(
-        `http://localhost:4000/api/boaTerra/principal/envios/${idEnvio}`,
+        `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/${idEnvio}`,
         {
           method: "PUT",
           headers: {
@@ -91,7 +91,7 @@ const Sending = (props) => {
       };
       /* /confirmar/:id */
       const resultado = await fetch(
-        `http://localhost:4000/api/boaTerra/principal/envios/confirmar/${envio._id}`,
+        `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/confirmar/${envio._id}`,
         {
           method: "PUT",
           headers: {

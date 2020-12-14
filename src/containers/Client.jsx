@@ -193,7 +193,7 @@ const Client = (props) => {
 
     try {
       const resultado = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/venta/cliente",
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/cliente",
         {
           method: "POST",
           headers: {
@@ -244,7 +244,7 @@ const Client = (props) => {
     try {
       console.log(newBuy);
       const resultado = await fetch(
-        "http://localhost:4000/api/boaTerra/principal/venta",
+        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta",
         {
           method: "POST",
           headers: {
