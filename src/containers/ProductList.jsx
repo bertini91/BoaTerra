@@ -57,7 +57,7 @@ const ProductList = (props) => {
     const word = document.getElementById("searchInput").value.toUpperCase();
 
     if (word !== "") {
-      if (tipoUsuario) {
+      if (typeOpenTable) {
         for (let producto of productos) {
           let nameProd = producto.nombreProd.toUpperCase();
           if (nameProd.indexOf(word) !== -1) {
@@ -111,7 +111,7 @@ const ProductList = (props) => {
         </div>
       ) : (
         <div className="search">
-          <button className="transparentButton">
+          <button className="transparentButton ">
             <img src={logo_search} alt="Buscar" />
           </button>
           <input
