@@ -129,6 +129,7 @@ const ClientModal = (props) => {
       if (resultado.status === 200) {
         Swal.fire("Listo!", "El cliente se cargó correctamente", "success");
         setRefrescar(true);
+        handleCloseModal();
       }
     } catch (error) {
       Swal.fire({
@@ -138,6 +139,7 @@ const ClientModal = (props) => {
         footer: "<p>No se pudo agregar el cliente.</p>",
       });
     }
+    
   };
   return (
     <>
