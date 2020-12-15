@@ -84,6 +84,7 @@ const UserModal = (props) => {
       });
     }
   };
+
   return (
     <>
       <div className="fade modal-backdrop show" style={styleUserModal}></div>

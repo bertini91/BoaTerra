@@ -121,3 +121,29 @@
   margin-top: 5px;
 }
 
+.buttonCli, .textButtonCli:hover {
+  width: 170px;
+  height: 45px;
+  /* margin: 37px 252px 33px 352px; */
+  padding: 12px 21px 11px 22px;
+  border-radius: 6px;
+  border: solid 1px #707070;
+  background-color: $back-color_header-footer;
+  font-family: TimesNewRomanPS-MT;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-align: center;
+  color: #e1e9de;
+}
+
+.buttonCli a, .buttonCli a:hover{
+  font-family: TimesNewRomanPS-MT;
+  font-size: 20px;
+  font-weight: bold;
+  color: #e1e9de;
+}
+

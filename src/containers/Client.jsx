@@ -5,7 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
-/* import "../assets/styles/Client.scss"; */
+import "../assets/styles/Client.scss";
 
 const Client = (props) => {
   const resultList = React.createRef;
@@ -126,22 +126,6 @@ const Client = (props) => {
     document.getElementById("inputTel").value = "";
     document.getElementById("inputDescrip").value = "";
     setStyleInput({});
-    /* setCurrentCliente({
-      nombreCli: "",
-      apellidoCli: "",
-      telefonoCli: "",
-      direccionCli: "",
-      detalleCli: "",
-      _id: "",
-    }); */
-    /* currentCliente = {
-    nombreCli: "",
-    apellidoCli: "",
-    telefonoCli: "",
-    direccionCli: "",
-    detalleCli: "",
-    _id: "",
-  }; */
     setAlreadySave(false);
   };
 
@@ -311,7 +295,7 @@ const Client = (props) => {
             </ul>
           </div>
           <button className="buttonCli ml-5" type="submit">
-            <p className="textButtonCli mb-0">BUSCAR</p>
+            <p className="mb-0">BUSCAR</p>
           </button>
         </form>
         <form onSubmit={handleConfirmClient}>
@@ -380,23 +364,10 @@ const Client = (props) => {
               className="buttonCli textButtonCli"
               onClick={() => history.push("/principal/confirmarEnvio")}
             >
-              {/* <Link to="/principal/confirmarEnvio" className="textButtonCli">
-              ATRÁS
-            </Link> */}
               ATRÁS
             </button>
-            {/* <button className="buttonCli">
-          <Link
-          to=""
-            className="textButtonCli"
-            onClick={() => setShowModal(true)}
-          >
-            CONFIRMAR
-          </Link>
-        </button> */}
             <button
               className="buttonCli textButtonCli"
-              /* onClick={handleConfirmClient} */
               type="submit"
             >
               CONFIRMAR

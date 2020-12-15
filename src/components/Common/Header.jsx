@@ -12,6 +12,7 @@ const Header = (props) => {
   const [linkImg, setLinkImg] = useState("/principal");
   useEffect(() => {
     isLogin ? setLinkImg("/") : setLinkImg("/principal");
+    console.log(isLogin)
   }, [isLogin]);
   return (
     <div className="header">
@@ -53,7 +54,7 @@ const Header = (props) => {
       <div className="d-flex">
         {isAdmin ? (
           <button className="closeBox_perfil-nav">
-            <Link to="">Cierre de Caja</Link>
+            <Link to="/cierre-caja">Cierre de Caja</Link>
           </button>
         ) : null}
         <div className="header__menu">
@@ -71,13 +72,13 @@ const Header = (props) => {
                 {isAdmin ? (
                   <>
                     <li>
-                      <Link to="">Mis Datos</Link>
+                      <Link to="/perfil">Mis Datos</Link>
                     </li>
                     <li className="closeBox_perfil">
-                      <Link>Cierre de Caja</Link>
+                      <Link to="/cierre-caja">Cierre de Caja</Link>
                     </li>
                     <li>
-                      <Link to="">Control Caja</Link>
+                      <Link to="/control-caja">Control Caja</Link>
                     </li>
                     <li>
                       <Link to="/administracion/usuarios">Personal</Link>
@@ -86,7 +87,7 @@ const Header = (props) => {
                 ) : (
                   <>
                     <li>
-                      <Link to="">Mis Datos</Link>
+                      <Link to="/perfil">Mis Datos</Link>
                     </li>
                     <li>
                       <Link to="/administracion/usuarios">Cadetes</Link>

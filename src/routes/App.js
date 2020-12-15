@@ -10,6 +10,8 @@ import Client from "../containers/Client";
 import ProductList from "../containers/ProductList.jsx";
 import ClientRectList from "../containers/ClientList";
 import Users from "../containers/Users.jsx";
+import PageNotFound from "../containers/PageNotFound.jsx";
+import MyPerfil from "../containers/MyPerfil.jsx";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -30,11 +32,13 @@ const App = () => {
   /* const [refrescarVentEnv, setRefrescarVentEnv] = useState(true); */
 
   useEffect(() => {
+    console.log("REFRESCAR "+refrescar);
     if (refrescar) {
       consultarAPI();
       /* console.log("Refrescar en useEffect App.js " + refrescar); */
       setRefrescar(false);
     }
+    console.log("IsAdmin "+isAdmin);
     /* if (refrescarVentEnv) {
       console.log("APP - useEffect - setRefrescarVentEnv " + refrescarVentEnv);
       consultarAPIVentEnv();
@@ -120,20 +124,12 @@ const App = () => {
         "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/cliente"
       );
       const resultadoCliente = await respuestaCli.json();
-
-      /* const respuestaEnviosPend = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
-      );
-      const resultadoEnvioPend = await respuestaEnviosPend.json();
-      console.log(resultadoEnvioPend);
-      setEnviosPendientes(resultadoEnvioPend); */
       setProductos(resultadoProd);
       setCombos(resultadoCombos);
       setUsuarios(resultadoUsuarios);
       setClientes(resultadoCliente);
 
       const respuestaEnviosPend = await fetch(
-        /* "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes" */
         "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioProceso = await respuestaEnviosPend.json();
@@ -242,6 +238,12 @@ const App = () => {
         </Route>
         <Route exact path ="/administracion/usuarios">
           <Users usuarioActivo={usuarioActivo} usuarios={usuarios} cadetes={cadetes} setRefrescar={setRefrescar}></Users>
+        </Route>
+        <Route exact path="/perfil">
+          <MyPerfil usuarioActivo={usuarioActivo} setRefrescar={setRefrescar}></MyPerfil>
+        </Route>
+        <Route exact path="*">
+          <PageNotFound></PageNotFound>
         </Route>
       </Switch>
       <Footer></Footer>
