@@ -45,22 +45,6 @@ const CartIem = (props) => {
           </div>
         </div>
       </div>
-
-      {/* <p className="pl-1">{cantidad}</p>
-      <p>{nombre}</p>
-      <p>{productoDetalle}</p>
-      <p>{"$ " + precio}</p>
-      <p>{"$ " + totalUnitario}</p>
-      <button
-        className="transparentButton"
-        onClick={() => removeProdCart(index)}
-      >
-        <img
-          src={eliminarProducto}
-          alt="Eliminar"
-          className="shoppingCart-img_delete"
-        />
-      </button> */}
     </div>
   );
 };

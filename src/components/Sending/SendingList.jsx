@@ -1,37 +1,17 @@
-import React, { useState } from "react";
-import Table from "react-bootstrap/Table";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Modal, Button } from "react-bootstrap";
-import SendingListItem from "./SendingListItem";
+import React from "react";
 import { useEffect } from "react";
+import Table from "react-bootstrap/Table";
+import SendingListItem from "./SendingListItem";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const SendingList = (props) => {
-  /* const handleClose = () => setShow(false);
-  const [show, setShow] = useState(false); */
-  /* const [cadetesList, setCadetesList] = useState([]); */
   const {
     enviosPendientes,
-    /* enviosEnCurso, */
-    setRefrescar,
-    /*     entregarEnvio,
-    caminoEnvio, */
-    cadetes,
     operationSend,
-    setShowDetail,
     handleShowDetail
   } = props;
 
   useEffect(() => {}, []);
-
-  /* const operationSend = (envio, id) => {
-    if (envio.estadoEnvio === "Preparacion") {
-      console.log("EN PREPARACION " + id);
-      console.log(cadetes);
-      setShow(true);
-    } else {
-      console.log("EN CAMINO");
-    }
-  }; */
 
   return (
     <>
@@ -50,15 +30,10 @@ const SendingList = (props) => {
             {enviosPendientes.map((envio, index) => (
               <SendingListItem
                 key={index}
-                /* _id={envio._id} */
                 envio={envio}
                 index={index}
-                setShowDetail={setShowDetail}
-                /* entregarEnvio={entregarEnvio}
-                caminoEnvio={caminoEnvio} */
                 operationSend={operationSend}
                 handleShowDetail={handleShowDetail}
-                /* cadetes={cadetes} */
               ></SendingListItem>
             ))}
           </tbody>

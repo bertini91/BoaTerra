@@ -1,6 +1,5 @@
 import React from "react";
 import ListProductHomeItem from "./ListProductHomeItem";
-import { useState } from "react";
 import "../../assets/styles/components/ListProductHome.scss";
 
 const ListProductHome = (props) => {
@@ -18,8 +17,6 @@ const ListProductHome = (props) => {
         <ListProductHomeItem
           key={producto._id}
           productosCarrito={productosCarrito}
-          /*  cantidad={cantidad}
-          setCantidad={setCantidad} */
           producto={producto}
           setProductosCarrito={setProductosCarrito}
           setRefrescar={setRefrescar}

@@ -67,17 +67,12 @@ const SendingModalDetail = (props) => {
             </thead>
             <tbody>
               {actuallySend.ventaEnvio.productoVen.map((item, index) => (
-                /* let total = Number(item.cantidad * item.producto.precioProd); */
-                /* console.log(item); */
                 <SendingModalDetailItem
                   key={index}
                   nombreProd={item.producto.nombreProd}
                   detalleProd={item.producto.detalleProd}
                   unidad={item.unidad}
-                  /* total={total} */
                   precioProd={item.producto.precioProd}
-                  /* estadoEnvio={actuallySend.estadoEnvio}
-                  cadeteEnvio={actuallySend.cadeteenvio} */
                 ></SendingModalDetailItem>
               ))}
             </tbody>

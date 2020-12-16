@@ -12,7 +12,7 @@ const ListProductHomeItem = (props) => {
     total,
     setTotal,
   } = props;
-  /* console.log(producto); */
+
   const [unidad, setUnidad] = useState(1);
   const handleButton = () => {
     const carrito = productosCarrito;
@@ -37,28 +37,23 @@ const ListProductHomeItem = (props) => {
         {/* <p>Bandeja $150</p> */}
       </section>
       <section className="d-flex align-items-center ml-5 bodyItem">
-          <div className="d-flex  align-items-center unitButtons">
-            <button className="buttonLess" onClick={amountLess}>
-              -
-            </button>
-            <input
-              type="text"
-              placeholder={unidad}
-              className="inputAmount"
-              onChange={(e) => {
-                setUnidad(e.target.value);
-              }}
-            />
-            <button className="buttonMore" onClick={amountAdd}>
-              +
-            </button>
-          </div>
-        <div className="unitButtons">
-          {/* <div className="d-flex mt-3 justify-content-center">
-            <button className="buttonType buttonTypeGr">125 g</button>
-            <button className="buttonType buttonTypeTray">Bandeja</button>
-          </div> */}
+        <div className="d-flex  align-items-center unitButtons">
+          <button className="buttonLess" onClick={amountLess}>
+            -
+          </button>
+          <input
+            type="text"
+            placeholder={unidad}
+            className="inputAmount"
+            onChange={(e) => {
+              setUnidad(e.target.value);
+            }}
+          />
+          <button className="buttonMore" onClick={amountAdd}>
+            +
+          </button>
         </div>
+        <div className="unitButtons"></div>
         <p className="amount">{`$ ${producto.precioProd * unidad}`}</p>
         <button button="button" className="buttonAdd" onClick={handleButton}>
           AGREGAR

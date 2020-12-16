@@ -45,8 +45,12 @@ const CadetList = (props) => {
       </thead>
       <tbody>
         {cadetes.map((cadete, index) => (
-          
-          <CadetListItem  key={index} cadete={cadete} usuarioActivo={usuarioActivo.permisoUsu} handleDeleteCadet={handleDeleteCadet}></CadetListItem>
+          <CadetListItem
+            key={index}
+            cadete={cadete}
+            usuarioActivo={usuarioActivo.permisoUsu}
+            handleDeleteCadet={handleDeleteCadet}
+          ></CadetListItem>
         ))}
       </tbody>
     </Table>

@@ -56,7 +56,6 @@ const ShoppingCart = (props) => {
                 </button>
                 <button
                   className="cartButton"
-                  /* onClick={() => hashHistory.push(`/confirmarEnvio`)} */
                 >
                 <Link className=" cartButtonLink" to="principal/confirmarEnvio">CONFIRMAR</Link>
                 </button>

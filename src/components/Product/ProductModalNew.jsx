@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Modal, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import "../../assets/styles/components/ProductModalNew.scss";
 
@@ -9,7 +8,6 @@ const ProductModalNew = (props) => {
     categorias,
     showModal,
     setShowModal,
-    setCategories,
     setRefrescar,
   } = props;
   const [typeStock, setTypeStock] = useState("");
@@ -20,13 +18,10 @@ const ProductModalNew = (props) => {
   const [styleStockUnit, setStyleStockUnit] = useState({
     display: "none",
   });
-  const [unCheckBox, setUnCheckBox] = useState({});
   const [styleAddCategory, setStyleAddCategory] = useState({
     display: "none",
   });
   const [categorySelected, setCategorySelected] = useState("");
-  /*   console.log(`en productModalNew ${categorias}`);
-  console.log(categorias); */
 
   useEffect(() => {
     console.log("En useEffect ProductModalNew");
@@ -36,39 +31,18 @@ const ProductModalNew = (props) => {
         display: "flex",
       });
     } else {
-      //AQUI DEBO LIMPIAR LOS CAMPOS Y STATE
-      /* clearModalNew(); */
       setStyleModal({
         display: "none",
       });
     }
-    /* showModal
-      ? setStyleModal({
-          display: "flex",
-        })
-      : setStyleModal({
-          display: "none",
-        }); */
   }, [showModal, categorias]);
 
-  const handleCloseModal = () => {
-    setStyleModal({
-      display: "none",
-    });
-    setShowModal(false);
-  };
-
-  const handleUnCheckBox = (id) => {};
 
   const handleUnchekedBox = (id) => {
-    /* let idActual = element.id; */
-    console.log("EN handleUnchekedBox" + id);
-    console.log(id);
     for (let i = 0; i < categorias.length; i++) {
       console.log(`${id}Category`);
       `${i}Category` !== id ? (document.getElementById(`${i}Category`).checked = false) : null;
     }
-    console.log("FIN EN handleUnchekedBox "+categorySelected);
   };
 
   const handleShowInput = () => {
@@ -79,20 +53,7 @@ const ProductModalNew = (props) => {
     setShowModal(true);
   };
 
-  /*  const handleSaveCategory = (event) => {
-    console.log("EN handleSaveCategory");
-    if (event.keyCode === 13) {
-      console.log("ENTER");
-      let arrayCateg = categorias;
-      arrayCateg.push(categorySelected);
-      setCategories(arrayCateg);
-    } else {
-      console.log("NO ENTER");
-    }
-  }; */
-
   const clearModalNew = () => {
-    console.log("EN clearModalNew(); ****************************")
     document.getElementById("inputName").value = "";
     document.getElementById("inputDetail").value = "";
     document.getElementById("inputURL").value = "";
@@ -114,7 +75,6 @@ const ProductModalNew = (props) => {
     } else {
       const tipoStockProd = typeStock === "peso" ? false : true;
       try {
-        
         const newProduct = {
           nombreProd: document.getElementById("inputName").value,
           detalleProd: document.getElementById("inputDetail").value,
@@ -166,12 +126,9 @@ const ProductModalNew = (props) => {
       <div className="fade modal-backdrop show" style={styleModal}></div>
       <div className="modalNew" style={styleModal}>
         <div className="backgroudItem contentModalNew">
-          {/* <div>
-            <div>BOA TERRA</div>
-          </div> */}
           <div>
             <p className="modalNewProduct_title">Nuevo Producto</p>
-            <form /* onKeyPress={handleSaveProd} */ onSubmit={handleSaveProd}>
+            <form onSubmit={handleSaveProd}>
               <div className="d-flex justify-content-between mb-4">
                 <p className="modalNewProduct_text">Nombre: </p>
                 <input
@@ -230,8 +187,6 @@ const ProductModalNew = (props) => {
                           className="fa fa-check"
                           id={`${index}Check`}
                           value={index}
-                          /* onChange={(e) => setCategorySelected(e.target.value)} */
-                          /* onClick={(e) => handleUnchekedBox(e.target.value)} */
                         ></i>
                         {categoria}
                       </label>
@@ -239,7 +194,6 @@ const ProductModalNew = (props) => {
                   ))}
                   <div className="d-block" id="add-todo">
                     <span className="todo-wrap" style={styleAddCategory}>
-                      {/* <input type="checkbox" /> */}
                       <label className="todo">
                         <i className="fa fa-check d-flex align-items-center"></i>
                         <input
@@ -277,7 +231,6 @@ const ProductModalNew = (props) => {
                         setTypeStock(e.target.value),
                         setStyleStockUnit({ display: "none" })
                       )}
-                      /* checked */
                     />
                     <label for="peso" className="ml-1">
                       Por Peso
@@ -293,7 +246,6 @@ const ProductModalNew = (props) => {
                         setTypeStock(e.target.value),
                         setStyleStockUnit({ display: "flex" })
                       )}
-                      /* onClick={()=>setStyleStockUnit({display: "flex"})} */
                     />
                     <label for="unidad" className="ml-1">
                       Por Unidad
@@ -335,9 +287,7 @@ const ProductModalNew = (props) => {
                 </button>
                 <button
                   className="modalNewProd_button modalNewProd_buttonText"
-                  /* onClick={handleConfirmClient} */
                   type="submit"
-                  /* onClick={handleSaveClient} */
                 >
                   CONFIRMAR
                 </button>

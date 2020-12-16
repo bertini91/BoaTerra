@@ -24,91 +24,35 @@ const App = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isAdmin, setIsAdmin] = useState(false);
   const [productosCarrito, setProductosCarrito] = useState([]);
-  const [enviosHoy, setEnviosHoy] = useState([]);
   const [total, setTotal] = useState(0);
   const [medioPago, setMedioPago] = useState("");
   const [enviosPendientes, setEnviosPendientes] = useState([]); //envios pendientes
-  const [enviosEnCurso, setEnviosEnCurso] = useState([]); //envios en camino
-  /* const [refrescarVentEnv, setRefrescarVentEnv] = useState(true); */
 
   useEffect(() => {
-    console.log("REFRESCAR "+refrescar);
     if (refrescar) {
       consultarAPI();
-      /* console.log("Refrescar en useEffect App.js " + refrescar); */
       setRefrescar(false);
     }
-    console.log("IsAdmin "+isAdmin);
-    /* if (refrescarVentEnv) {
-      console.log("APP - useEffect - setRefrescarVentEnv " + refrescarVentEnv);
-      consultarAPIVentEnv();
-      
-    } */
-  }, [refrescar /* , refrescarVentEnv */]);
+  }, [refrescar]);
 
   const clearSale = () => {
     setProductosCarrito([]);
     setTotal(0);
   };
 
-  /*   const consultarAPIVentEnv = async () => {
-    try {
-      const respuestaEnviosPend = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
-      );
-      const resultadoEnvioPend = await respuestaEnviosPend.json();
-      console.log(resultadoEnvioPend);
-      setEnviosPendientes(resultadoEnvioPend);
-      console.log("en consultarAPIVentEnv")
-      const respuestaVentPend = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes"
-      );
-      if(respuestaVentPend.status === 200){
-        console.log("ESTADO 200")
-      }
-      if(respuestaVentPend.status===500){
-        console.log("ESTADO 500")
-      }
-      const resultadoVentPend = await respuestaVentPend.json();
-      setEnviosPendientes(resultadoVentPend);
-      console.log(enviosPendientes);
-      const respuestaEnvCurso = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
-      );
-      const resultadoEnvCurso = await respuestaEnvCurso.json();
-      setEnviosEnCurso(resultadoEnvCurso);
-      
-    } catch (error) {
-      //Enviar a 404
-      console.log(error);
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Ocurrió un error de conexion!",
-        footer: error,
-      });
-    }
-    setRefrescarVentEnv(false);
-  }; */
-
   const consultarAPI = async () => {
     try {
       const respuestaProd = await fetch(
         "https://boa-terra.herokuapp.com/api/boaTerra/principal"
       );
-      /* const respuestaProd = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal"
-      ) */
-      /* console.log(respuestaProd); */
       const resultadoProd = await respuestaProd.json();
-      /* console.log(resultadoProd); */
       const respuestaCombo = await fetch(
         "https://boa-terra.herokuapp.com/api/boaTerra/principal/combos"
       );
       const resultadoCombos = await respuestaCombo.json();
       const respuestaUsuarios = await fetch(
         "https://boa-terra.herokuapp.com/api/boaTerra/"
-      ); //codigo 11000 me devuelve de error si los datos ya estan almacenados
+      );
       const resultadoUsuarios = await respuestaUsuarios.json();
       resultadoProd.sort((a, b) => {
         if (a.nombreProd > b.nombreProd) {
@@ -133,7 +77,6 @@ const App = () => {
         "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioProceso = await respuestaEnviosPend.json();
-      /* console.log(resultadoEnvioProceso); */
       setEnviosPendientes(resultadoEnvioProceso);
 
       const respuestaCadete = await fetch(
@@ -141,14 +84,7 @@ const App = () => {
       );
       const resultadoCadete = await respuestaCadete.json();
       setCadetes(resultadoCadete);
-      /* const respuestaVentPend = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/pendientes"
-      );
-      const resultadoVentPend = await respuestaVentPend.json();
-      setEnviosPendientes(resultadoVentPend); */
-      /* console.log(enviosPendientes); */
     } catch (error) {
-      //Enviar a 404
       console.log(error);
     }
   };
@@ -161,7 +97,6 @@ const App = () => {
         setRefrescar={setRefrescar}
       ></Header>
       <Switch>
-        {/* Esta ruta de debo sacar al finalizar el proyecto, para no acceder si no estoy logueado */}
         <Route exact path="/">
           <Login
             usuarios={usuarios}
@@ -170,7 +105,6 @@ const App = () => {
             setIsAdmin={setIsAdmin}
           ></Login>
         </Route>
-        {/* FALTA PREGUNTAR SI EL USUARIO ESTA ACTIVO, SINO MANDAR A LA PAG404 */}
         <Route exact path="/principal">
           <Home
             productos={productos}
@@ -200,7 +134,6 @@ const App = () => {
         <Route exact path="/principal/confirmarEnvio/cliente">
           <Client
             clientes={clientes}
-            setClientes={setClientes}
             usuarioActivo={usuarioActivo}
             total={total}
             productosCarrito={productosCarrito}
@@ -213,7 +146,6 @@ const App = () => {
         <Route exact path="/envios">
           <Sending
             enviosPendientes={enviosPendientes}
-            /* enviosEnCurso={enviosEnCurso} */
             setRefrescar={setRefrescar}
             cadetes={cadetes}
           ></Sending>

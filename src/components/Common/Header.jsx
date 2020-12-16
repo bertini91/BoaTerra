@@ -8,12 +8,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const Header = (props) => {
-  const { isLogin, isAdmin, setRefrescar } = props;
+  const { isLogin, isAdmin} = props;
   const [linkImg, setLinkImg] = useState("/principal");
+  
   useEffect(() => {
     isLogin ? setLinkImg("/") : setLinkImg("/principal");
-    console.log(isLogin)
   }, [isLogin]);
+  
   return (
     <div className="header">
       {!isLogin ? (
@@ -34,7 +35,7 @@ const Header = (props) => {
                 </button>
               </li>
               <li>
-                <button /* onClick={setRefrescar(true)} */>
+                <button>
                   <Link to="/envios">Envios</Link>
                 </button>
               </li>

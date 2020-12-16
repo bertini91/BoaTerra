@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CadetList from "../components/Users/CadetList";
 import UserList from "../components/Users/UserList";
 import { Link } from "react-router-dom";

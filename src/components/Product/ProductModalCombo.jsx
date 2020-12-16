@@ -10,8 +10,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const ProductModalCombo = (props) => {
   const {
     setRefrescar,
-    setCombos,
-    productos,
     showModalCombo,
     setShowModalCombo,
     setSelectedProducts,
@@ -27,10 +25,7 @@ const ProductModalCombo = (props) => {
 
   const [reloadTable, setReloadTable] = useState(false);
 
-  /* const resultProd = []; */
-
   useEffect(() => {
-    console.log("En useEffect ProductModalCombo ........");
     if (showModalCombo) {
       setStyleModalCombo({
         display: "flex",
@@ -51,20 +46,6 @@ const ProductModalCombo = (props) => {
       event.preventDefault();
     }
   };
-  /* const handleSearch = () => {
-    const word = document.getElementById("searchInput").value.toUpperCase();
-    autocomplete(document.getElementById("searchInput"), resultProd);
-    if (word !== "") {
-      for (let producto of productos) {
-        let nameProd = producto.nombreProd.toUpperCase();
-        if (nameProd.indexOf(word) !== -1) {
-          resultProd.push(producto);
-        }
-      }
-    } else {
-      setRefrescar(true);
-    }
-  }; */
 
   const cleanView = () => {
     document.getElementById("inputNameCombo").value = "";
@@ -116,7 +97,6 @@ const ProductModalCombo = (props) => {
         console.log("STADO RESP = " + resultado.status);
         if (resultado.status === 200) {
           Swal.fire("Listo!", "La venta se cargó correctamente", "success");
-          /* clearModalNew(); */
           cleanView();
           setRefrescar(true);
           setShowModalCombo(false);
@@ -146,17 +126,11 @@ const ProductModalCombo = (props) => {
     }
   };
 
-  /*                                                            ************************************                     */
-
-  /*                                                            ************************************                     */
   return (
     <>
       <div className="fade modal-backdrop show" style={styleModalCombo}></div>
       <div className="modalNew" style={styleModalCombo}>
         <div className="backgroudItem contentModalNew">
-          {/* <div>
-            <div>BOA TERRA</div>
-          </div> */}
           <div>
             <p className="modalNewProduct_title">Nuevo Combo</p>
             <form onSubmit={handleSaveCombo}>
@@ -193,7 +167,6 @@ const ProductModalCombo = (props) => {
                   onKeyDown={handleEnter}
                   autoComplete="off"
                   id="inputDetailCombo"
-                  /* required */
                 />
               </div>
               <div className="d-flex justify-content-between mb-4">

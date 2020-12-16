@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Table from "react-bootstrap/Table";
-
 import logo_search from "../assets/static/search_find.png";
 import Swal from "sweetalert2";
 import "../assets/styles/ClientList.scss";
@@ -129,7 +128,6 @@ const ClientList = (props) => {
                   setShow={setShow}
                 ></ClientListItem>
               ))}
-              {/* clientes.map((cliente, index)=> ) */}
             </tbody>
           </Table>
         </section>
@@ -142,8 +140,6 @@ const ClientList = (props) => {
       <ClientModal
         show={show}
         setShow={setShow}
-        /* clientes={clientes}
-        setClientes={setClientes} */
         setRefrescar={setRefrescar}
         optionEdit={optionEdit}
         clientEdit={clientEdit}

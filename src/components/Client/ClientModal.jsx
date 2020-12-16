@@ -1,12 +1,11 @@
 import React from "react";
 import Swal from "sweetalert2";
-import { Modal, Button } from "react-bootstrap";
 import { useEffect } from "react";
 import { useState } from "react";
 
 const ClientModal = (props) => {
   const {
-    /* setClientes, clientes, */ setShow,
+    setShow,
     show,
     setRefrescar,
     optionEdit,
@@ -33,8 +32,6 @@ const ClientModal = (props) => {
   };
 
   useEffect(() => {
-    /* console.log(show); */
-    /* console.log(optionEdit); */
     show
       ? setStyleModal({
           display: "flex",
@@ -42,7 +39,7 @@ const ClientModal = (props) => {
       : setStyleModal({
           display: "none",
         });
-    optionEdit ? handleLoadInput() : null; //Ver si funciona null sino cargar el estilo de input en vacio
+    optionEdit ? handleLoadInput() : null;
   }, [show, optionEdit]);
 
   const handleDecideOperation = (event) => {
@@ -69,7 +66,6 @@ const ClientModal = (props) => {
 
   const handleEditClient = async (event) => {
     event.preventDefault();
-    console.log("EDITAR CLIENTE");
     setShow(false);
     const cli = {
       nombreCli: document.getElementById("inputName").value,
@@ -139,7 +135,6 @@ const ClientModal = (props) => {
         footer: "<p>No se pudo agregar el cliente.</p>",
       });
     }
-    
   };
   return (
     <>
@@ -212,7 +207,6 @@ const ClientModal = (props) => {
                   <textarea
                     name="textarea"
                     rows="10"
-                    /* type="text" */
                     placeholder="Ingrese algun detalle que desea aclarar"
                     className="clientModal_input "
                     id="inputDescrip"
@@ -229,28 +223,13 @@ const ClientModal = (props) => {
                 </button>
                 <button
                   className="buttonCli textButtonCli"
-                  /* onClick={handleConfirmClient} */
                   type="submit"
-                  /* onClick={handleSaveClient} */
                 >
                   CONFIRMAR
                 </button>
               </section>
             </form>
           </div>
-          {/* <div>
-          <div>
-            <Button variant="secondary" className="buttonClose" onClick={()=>handleCloseModal}>
-              Cancelar
-            </Button>
-            <Button
-              variant="primary" //Aqui debo llamar a la funcion que cambie de estdo
-              className="buttonAcept"
-            >
-              Agregar
-            </Button>
-          </div>
-        </div> */}
         </div>
       </div>
     </>

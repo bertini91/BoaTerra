@@ -7,7 +7,7 @@ import SendingModalDetail from "../components/Sending/SendingModalDetail";
 
 const Sending = (props) => {
   const {
-    enviosPendientes /* , enviosEnCurso */,
+    enviosPendientes,
     setRefrescar,
     cadetes,
   } = props;
@@ -30,7 +30,6 @@ const Sending = (props) => {
 
   const operationSend = (envio) => {
     if (envio.estadoEnvio === "Preparacion") {
-      console.log("EN PREPARACION " + envio._id);
       console.log(cadetes);
       setActuallySend(envio);
       setShow(true);
@@ -47,7 +46,6 @@ const Sending = (props) => {
   };
 
   const caminoEnvio = async (ventaEnvio, idEnvio) => {
-    //DEBO TRAER EL ID DEL ENVIO PARA LA URL
     try {
       const fecha = new Date();
       const env = {
@@ -56,7 +54,6 @@ const Sending = (props) => {
         estadoEnvio: "Camino",
         fechaEnvio: fecha,
       };
-      /* /confirmar/:id */
       const resultado = await fetch(
         `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/${idEnvio}`,
         {
@@ -89,7 +86,6 @@ const Sending = (props) => {
         estadoEnvio: "Entregado",
         fechaEnvio: fecha,
       };
-      /* /confirmar/:id */
       const resultado = await fetch(
         `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/confirmar/${envio._id}`,
         {
@@ -119,13 +115,7 @@ const Sending = (props) => {
         <p className="sendingTitle">ENVIOS</p>
         <SendingList
           enviosPendientes={enviosPendientes}
-          /* enviosEnCurso={enviosEnCurso} */
-          setRefrescar={setRefrescar}
-          /*           entregarEnvio={entregarEnvio}
-          caminoEnvio={caminoEnvio} */
-          cadetes={cadetes}
           operationSend={operationSend}
-          setShowDetail={setShowDetail}
           handleShowDetail={handleShowDetail}
         ></SendingList>
       </div>

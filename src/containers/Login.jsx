@@ -1,15 +1,13 @@
 import React from "react";
-/* import Header from "../components/Common/Header"; */
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/styles/Login.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-/* import Swal from "sweetalert2"; */
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../assets/styles/Login.scss";
+
 const Login = (props) => {
   const [usuario, setUsuario] = useState("");
   const [contrasena, setContrasena] = useState("");
-  /* const [usuencontrado, setUsuencontrado] = useState(false); */
   const { usuarios, setUsuarioActivo, setIsLogin, setIsAdmin} = props;
   const history = useHistory();
 
@@ -24,23 +22,13 @@ const Login = (props) => {
     const activo = usuarios.find(
       (item) => item.usuarioUsu === usuario && item.contrasenaUsu === contrasena
     );
-    console.log(activo)
     if (activo) {
       setUsuarioActivo(activo);
-/*       console.log(activo); */
       setIsLogin(false);
       activo.permisoUsu === true ? setIsAdmin(true) : setIsAdmin(false);
       history.push("/principal");
     } else {
-      /* document.getElementsByClassName("msjError").style.display = "row"; */
       document.getElementById("p-error").style.display = "inline";
-      /* Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Ocurrió un error!",
-        footer: "<p>Email o contraseña incorrectas</p>",
-      });
-      return; */
     }
   };
 

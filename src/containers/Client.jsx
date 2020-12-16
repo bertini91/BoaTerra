@@ -17,18 +17,8 @@ const Client = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [alreadySave, setAlreadySave] = useState(false); //debo usarlo para saber si el cliente ya esta guardado o consulto para agregarlo
   const [currentCliente, setCurrentCliente] = useState({});
-  /* const [currentCliente2, setCurrentCliente2] = useState({
-    nombreCli: "",
-    apellidoCli: "",
-    telefonoCli: "",
-    direccionCli: "",
-    detalleCli: "",
-    _id: "",
-  }); */
-  /* let currentCliente2 = {}; */
 
   const {
-    setClientes,
     clientes,
     usuarioActivo,
     total,
@@ -82,26 +72,10 @@ const Client = (props) => {
     setCurrentCliente(cli);
     console.log(currentCliente);
     document.getElementById("inputSearch").value = "";
-    /* setCurrentCliente(cli); */
     setResultClient(clientes);
-    /* currentCliente = cli.Body; */
-    /* const clienteVenta = {
-      nombreCli: cli.nombreCli,
-      apellidoCli: cli.apellidoCli,
-      telefonoCli: cli.telefonoCli,
-      direccionCli: cli.direccionCli,
-      detalleCli: cli.detalleCli,
-      _id: cli._id,
-    }; */
-    /* console.log(clienteVenta) */
-    /* console.log(clienteVenta); */
-    /* currentCliente2 = clienteVenta;
-    console.log(currentCliente2); */
-
     setStyleSearch({
       display: "none",
     });
-    /* console.log(cli); */
 
     document.getElementById("inputName").value = cli.nombreCli;
     document.getElementById("inputSurname").value = cli.apellidoCli;
@@ -143,27 +117,9 @@ const Client = (props) => {
     };
     setCurrentCliente(cli);
     alreadySave ? handleSaveBuy() : setShowModal(true);
-    /* if (
-      document.getElementById("inputName").checkValidity() &&
-      document.getElementById("inputSurname").checkValidity() &&
-      document.getElementById("inputAddress").checkValidity() &&
-      document.getElementById("inputTel").checkValidity()
-    ) {
-      console.log("SI ESTAN VALIDADOS LOS CAMPOS");
-      alreadySave ? handleSaveBuy() : setShowModal(true);
-    } else {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "¡Faltó completar datos para el envio!",
-        footer:
-          "<p>Nombre, Apellido, Direccion y Telefono son campos obligatorios.</p>",
-      });
-    } */
   };
 
   const handleSaveClient = async () => {
-    //Primero guardar el cliente a la DB, luego agregar a la venta llamando a handleSaveBuy y actualizar HOOKS
     console.log(`en handleSaveClient ........... ${alreadySave}`);
     setShowModal(false);
     const cli = {
@@ -186,11 +142,7 @@ const Client = (props) => {
           body: JSON.stringify(cli),
         }
       );
-      /* if (resultado.status === 200) {
-        Swal.fire("Listo!", "El se cargó correctamente", "success");
-        clearSale();
-        setRefrescar(true);
-      } */
+      console.log(resultado.status)
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -199,16 +151,12 @@ const Client = (props) => {
         footer: "<p>No se pudo agregar el cliente.</p>",
       });
     }
-
-    /* console.log("CLI = ");
-    console.log(cli); */
     console.log("CURRETCLIENTE = ");
     console.log(currentCliente);
     handleSaveBuy();
   };
 
   const handleSaveBuy = async () => {
-    //preguntar si los campos obligatorios estan completados
     console.log(`en handleSaveBuy ---------- ${alreadySave}`);
 
     const fecha = new Date();
@@ -223,8 +171,6 @@ const Client = (props) => {
       detalleVen: document.getElementById("inputDescrip").value,
       direccionVen: document.getElementById("inputAddress").value, //Tomo este input porque es un campo que puede variar
     };
-    console.log(newBuy);
-    console.log(currentCliente);
     try {
       console.log(newBuy);
       const resultado = await fetch(
@@ -286,10 +232,7 @@ const Client = (props) => {
                   key={cli._id}
                   onClick={() => handleLoadInput(cli)}
                 >
-                  {/* <Link id={cli._id} onClick={()=>handleLoadInput('id')}> */}
                   {`${cli.nombreCli} ${cli.apellidoCli}`}
-                  {/* {cli.nombreCli + " "+  cli.apellidoCli} */}
-                  {/* </Link> */}
                 </li>
               ))}
             </ul>
@@ -308,7 +251,6 @@ const Client = (props) => {
                 className="inputPropCli"
                 id="inputName"
                 required
-                /* disabled */
                 style={styleInput}
               />
             </div>
@@ -351,7 +293,6 @@ const Client = (props) => {
               <textarea
                 name="textarea"
                 rows="10"
-                /* type="text" */
                 placeholder="Ingrese algun detalle que desea aclarar"
                 className="detailPropCli"
                 id="inputDescrip"
@@ -382,23 +323,11 @@ const Client = (props) => {
           </Modal.Header>
           <Modal.Body>
             <h2 className="cartTitle">¿Desea registrar el cliente?</h2>
-            {/* <ul className="listProd">
-              {productoCombo.map((element, i) => (
-                <li className="itemList d-flex" key={i}>
-                  <p>{element.detalleProd}</p>
-                  <p className="ml-4">{element.nombreProd}</p>
-                </li>
-              ))}
-            </ul> */}
           </Modal.Body>
           <Modal.Footer>
-            {/* <div className=" itemList">
-              <p className="mb-0">PRECIO: $ {precioCombo}</p>
-            </div> */}
             <div>
               <Button
                 variant="secondary"
-                /* onClick={hangleSaveSend} */
                 className="buttonClose"
                 onClick={handleSaveBuy}
               >
@@ -410,7 +339,6 @@ const Client = (props) => {
                 className="buttonAcept"
               >
                 SI
-                {/* <Link className="cart-button_text" to="/principal/confirmarEnvio/cliente">SI</Link> */}
               </Button>
             </div>
           </Modal.Footer>

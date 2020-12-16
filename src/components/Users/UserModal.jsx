@@ -165,7 +165,6 @@ const UserModal = (props) => {
                       name="gender"
                       value="employee"
                       onClick={() => setTypePermise(false)}
-                      /* checked */
                       defaultChecked
                     />
                     <label for="employee" className="userModal_permitText ml-1">Vendedor</label>

@@ -41,7 +41,6 @@ const ProductList = (props) => {
     handleSearchCategories();
     setShowModal(true);
   };
-  const handleOpenModalNewcombo = () => {};
 
   const handleSearchCategories = () => {
     for (let producto of productos) {
@@ -123,18 +122,6 @@ const ProductList = (props) => {
           />
         </div>
       )}
-      {/* <div className="search">
-        <button className="transparentButton">
-          <img src={logo_search} alt="Buscar" />
-        </button>
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Buscar Producto"
-          className="search_input"
-          onChange={handleSearch}
-        />
-      </div> */}
       <div className="tab">
         <button className="tablinks" onClick={() => setTypeOpenTable(true)}>
           Productos
@@ -167,13 +154,10 @@ const ProductList = (props) => {
         categorias={categories}
         showModal={showModal}
         setShowModal={setShowModal}
-        setCategories={setCategories}
         setRefrescar={setRefrescar}
       ></ProductModalNew>
       <ProductModalCombo
         setRefrescar={setRefrescar}
-        setCombos={setCombos}
-        productos={productos}
         showModalCombo={showModalCombo}
         setShowModalCombo={setShowModalCombo}
         selectedProducts={selectedProducts}

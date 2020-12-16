@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
 const SendingModal = (props) => {
   const { show, handleClose, cadetes, setCadetSelected, processSend } = props;
-  /* const [cadetesModal, setCadetesModales] = useState([]); */
-  /* const [styleCadet, setStyleCadet] = useState({}); */
-
-  /*  const [show, setShow] = useState(false);
-  const operationSend = (envio, id) => {
-    if (envio.estadoEnvio === "Preparacion") {
-      console.log("EN PREPARACION " + id);
-      console.log(cadetes);
-      setShow(true);
-    } else {
-      console.log("EN CAMINO");
-    }
-  }; */
-
-/*   useEffect(() => {
-    setCadetesModales(cadetes);
-  }, []); */
 
   return (
     <>
@@ -41,7 +24,7 @@ const SendingModal = (props) => {
                 key={i}
                 className="sendingCadet"
                 id={`styleCadet${i}`}
-                onClick={()=>setCadetSelected(element)}
+                onClick={() => setCadetSelected(element)}
               >
                 <p className="mb-0">{`${element.nombreCadete}, ${element.apellidoCadete}`}</p>
                 <p className="mb-0">{element.telefonoCadete}</p>
@@ -58,9 +41,9 @@ const SendingModal = (props) => {
                 Atrás
               </Button>
               <Button
-                variant="primary" //Aqui debo llamar a la funcion que cambie de estdo
+                variant="primary"
                 className="buttonAcept"
-                onClick={()=>processSend()}
+                onClick={() => processSend()}
               >
                 Confirmar
               </Button>
