@@ -10,13 +10,7 @@
 }
 
 .carouselItem {
-  /* background-image: url("/src/assets/static/fondo_combo.png");
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* padding: 5px; */
   margin-right: 5px;
-  /* opacity: 0.8;
-  border-radius: 16px; */
 }
 
 .carouselItem p,
@@ -59,7 +53,6 @@ a:hover {
   line-height: 1.42;
   letter-spacing: normal;
   padding-left: 15px;
-  /* text-align: center; */
 }
 
 .carouselItem button {
@@ -81,7 +74,6 @@ a:hover {
 }
 
 .modal-content {
-  /* opacity: 1; */
   border-radius: 16px !important;
 }
 .modal-title {
@@ -127,8 +119,6 @@ a:hover {
 }
 
 .buttonLess {
-  /* width: 26px;
-  height: 24px; */
   background-color: #e1e9de;
   border: none;
   border-top-left-radius: 5px;
@@ -136,8 +126,6 @@ a:hover {
 }
 
 .buttonMore {
-  /* width: 26px;
-  height: 24px; */
   background-color: #e1e9de;
   border: none;
   border-bottom-right-radius: 5px;

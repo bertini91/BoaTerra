@@ -1,14 +1,10 @@
 @import "./Apps.scss";
-/* $back-color: #e1e9de;
-$back-color_button: #619a5d; */
 
 .login {
   background-image: url("../static/fondo-login.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  /* justify-content: center; */
   display: flex;
-  /* padding: 0px 30px; */
   flex-direction: column;
   min-height: calc(112vh - 230px);
 }
@@ -29,9 +25,6 @@ $back-color_button: #619a5d; */
   padding-left: 10px;
 }
 .loginContainer h1 {
-  font-weight: 900;
-  font-stretch: normal;
-  font-style: normal;
   line-height: 1.15;
   letter-spacing: normal;
   color: $font-color_brown;
@@ -39,7 +32,6 @@ $back-color_button: #619a5d; */
 }
 
 .loginContainer h2 {
-  /*    font-weight: 900; */
   font-stretch: normal;
   font-style: normal;
   line-height: 1.15;
@@ -50,8 +42,6 @@ $back-color_button: #619a5d; */
 }
 
 #button_login {
-  /*   width: 285px;
-  height: 74px; */
   border-radius: 6px;
   border: solid 1px #707070;
   background-color: $back-color_button;

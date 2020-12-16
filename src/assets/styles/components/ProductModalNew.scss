@@ -10,7 +10,6 @@
   overflow: hidden;
   outline: 0;
   justify-content: center;
-  /* margin-top: 50px; */
   overflow-x: hidden;
   overflow-y: auto;
   width: 100vw;
@@ -19,12 +18,10 @@
 .contentModalNew {
   margin-top: 50px;
   width: 700px;
-  /* background-color: #707070; */
   padding: 0 20px;
   border-radius: 15px;
   border-width: 3px;
   background-image: url("../../static/vegatales_fondo.jpg");
-  /* background-color: #fff; */
   display: table;
 }
 
@@ -47,7 +44,6 @@
   border-width: 3px;
   border-color: $back-color_button;
   padding-left: 15px;
-  /* margin-left: 15px; */
   font-size: 22px;
   font-weight: bold;
   padding-left: 20px;
@@ -89,7 +85,6 @@
   margin: 0;
 }
 
-
 .fa-check {
   font-size: 30px;
   margin-right: 10px;
@@ -101,11 +96,9 @@
   padding: 50px;
   background: white;
   position: relative;
-  /*box-shadow*/
   -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  /*border-radius*/
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -114,7 +107,6 @@
   content: "";
   position: absolute;
   z-index: -1;
-  /*box-shadow*/
   -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -122,7 +114,6 @@
   bottom: 0;
   left: 10px;
   right: 10px;
-  /*border-radius*/
   -webkit-border-radius: 100px / 10px;
   -moz-border-radius: 100px / 10px;
   border-radius: 100px / 10px;
@@ -131,13 +122,11 @@
   display: block;
   position: relative;
   padding-left: 35px;
-  /*box-shadow*/
   -webkit-box-shadow: 0 2px 0 -1px #ebebeb;
   -moz-box-shadow: 0 2px 0 -1px #ebebeb;
   box-shadow: 0 2px 0 -1px #ebebeb;
 }
 .todo-wrap:last-of-type {
-  /*box-shadow*/
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -153,7 +142,6 @@ input[type="checkbox"] {
   color: $font-color_green;
   font-size: 15px;
   padding: 7px 5px;
-  /* height: 37px; */
   position: relative;
 }
 .todo:before {
@@ -165,7 +153,6 @@ input[type="checkbox"] {
   width: 0%;
   height: 1px;
   background: #cd4400;
-  /*transition*/
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
@@ -180,22 +167,18 @@ input[type="checkbox"] {
   width: 18px;
   top: 9px;
   left: -25px;
-  /*box-shadow*/
   -webkit-box-shadow: inset 0 0 0 2px #d8d8d8;
   -moz-box-shadow: inset 0 0 0 2px #d8d8d8;
   box-shadow: inset 0 0 0 2px #d8d8d8;
-  /*transition*/
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
-  /*border-radius*/
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
 .todo:hover:after {
-  /*box-shadow*/
   -webkit-box-shadow: inset 0 0 0 2px #949494;
   -moz-box-shadow: inset 0 0 0 2px #949494;
   box-shadow: inset 0 0 0 2px #949494;
@@ -229,7 +212,6 @@ input[type="checkbox"] {
   line-height: 35px;
   color: #0eb0b7;
 }
-/* Delete Items */
 
 .delete-item {
   display: block;
@@ -249,11 +231,9 @@ input[type="checkbox"] {
 .delete-item:hover {
   color: #cd4400;
 }
-/* Add Items */
 
 .fa-plus {
   font-size: 14px;
-  /*transition*/
   -webkit-transition: none;
   -moz-transition: none;
   -o-transition: none;
@@ -281,8 +261,6 @@ input[type="checkbox"] {
 .modalNewProd_button {
   width: 170px;
   height: 45px;
-  /* margin: 37px 252px 33px 352px;
-  padding: 12px 21px 11px 22px; */
   border-radius: 6px;
   border: solid 1px #707070;
   background-color: #619a5d;
@@ -320,7 +298,3 @@ input[type="checkbox"] {
   width: 70%;
   display: flex;
 }
-
-/* #containerStock{
-  display: none !important;
-} */

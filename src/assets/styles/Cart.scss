@@ -1,16 +1,11 @@
 @import "./Apps.scss";
 
 .cartTitle {
-  /* width: 259px;
-  height: 26px; */
   padding: 58px 0px 53px 0px;
   font-family: BigJohn;
   font-size: 25px;
-  /* font-weight: normal;
-  font-stretch: normal; */
   font-style: normal;
   line-height: 1.4;
-  /* letter-spacing: normal; */
   text-align: center;
   color: $font-color_brown;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
@@ -22,30 +17,16 @@
 .cartItem {
   display: flex;
   padding: 10px 50px 10px 50px;
-  /* width: 1131px;
-    height: 113px; */
-  /* padding-left: 20px; */
   margin-top: 10px;
   border-radius: 15px;
-  /* opacity: 0.5; */
   background-color: #ffffff;
-  /* filter: alpha(opacity=60); */
   opacity: 0.8;
   justify-content: space-around;
 }
 
 .cartItem p {
-  /* width: 76px;
-  height: 17px;
-  margin: 13px 193px 14px 86px; */
   font-family: BigJohn;
   font-size: 16px;
-  /* font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.38;
-  letter-spacing: normal;
-  text-align: center; */
   color: $font-color_green;
   margin: 0;
   font-weight: bolder;
@@ -113,8 +94,6 @@
   width: 187px;
   height: 100%;
   font-size: 25px;
-  /* margin: 46px 278px 32px 11px; */
-  /* padding: 9px 54px 12px 65px; */
   border-radius: 15px;
   border: solid 1px $font-color_brown;
   background-color: rgba(255, 255, 255, 0.29);
@@ -124,9 +103,6 @@
 
 
 @media (max-width: 900px) {
-  /* .col-md-4{
-    flex: 0 !important;
-  } */
   .col {
     padding-right: 10px;
     padding-right: 10px;
@@ -135,9 +111,6 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-  /* .cartCol-delete{
-    display: none;
-  } */
   .cartItem {
     padding-left: 10px;
     padding-right: 10px;

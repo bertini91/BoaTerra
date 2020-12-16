@@ -1,11 +1,10 @@
 @import "./Apps.scss";
 
 .sendingg {
-  /* position: relative; */
   padding: 10px;
-  min-height: -webkit-calc(100% - 100px); /* Chrome */
-  min-height: -moz-calc(100% - 100px); /* Firefox */
-  min-height: calc(100% - 100px); /* native */
+  min-height: -webkit-calc(100% - 100px); 
+  min-height: -moz-calc(100% - 100px); 
+  min-height: calc(100% - 100px);
 }
 
 .sending {
@@ -84,7 +83,6 @@
   text-transform: uppercase;
   font-weight: bold;
   font-size: 20px;
-  /* color: rgb(51, 189, 24); */
   margin: 15px 0;
   border: none;
   background-color: transparent;
@@ -108,7 +106,6 @@
 .modal-subTitle {
   text-transform: uppercase;
   font-size: large !important;
-  /* color: $font-color_brown; */
   font-weight: bold !important;
   text-shadow: 0 3px 6px rgba(0, 0, 0, 0.6);
   margin: 10px 0;
@@ -134,12 +131,8 @@
 .modalDetailProperty {
   text-transform: uppercase;
   font-family: TempusSansITC;
-  /* font-weight: bold; */
   margin-right: 8px;
   font-size: 19px !important;
-  /* color: white !important;
-  opacity: 0.8; */
-  /* text-decoration: underline; */
 }
 
 .modalDetail_total {
@@ -156,12 +149,10 @@
   margin-bottom: 5px;
   padding: 5px;
   border-color: white rgba(0, 0, 0, 0.2);
-  /* opacity: 0.7; */
 }
 
 .modalDetail_button {
   border-radius: 6px;
-  /* border: solid 1px #707070; */
   background-color: $font-color_brown;
   flood-opacity: 0.8;
   padding: 5px 7px;
