@@ -10,7 +10,7 @@ const ProductListProd = (props) => {
   const handleDeleteProduct = async (_id) => {
     try {
       const resultado = await fetch(
-        `https://boa-terra.herokuapp.com/api/boaterra/administracion/productos/${_id}`,
+        `http://localhost:4000/api/boaterra/administracion/productos/${_id}`,
         {
           method: "DELETE",
           headers: {

@@ -12,6 +12,7 @@ import ClientRectList from "../containers/ClientList";
 import Users from "../containers/Users.jsx";
 import PageNotFound from "../containers/PageNotFound.jsx";
 import MyPerfil from "../containers/MyPerfil.jsx";
+import BillingSummary from "../containers/BillingSummary.jsx";
 
 const App = () => {
   const [productos, setProductos] = useState([]);
@@ -43,15 +44,15 @@ const App = () => {
   const consultarAPI = async () => {
     try {
       const respuestaProd = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal"
+        "http://localhost:4000/api/boaTerra/principal"
       );
       const resultadoProd = await respuestaProd.json();
       const respuestaCombo = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/combos"
+        "http://localhost:4000/api/boaTerra/principal/combos"
       );
       const resultadoCombos = await respuestaCombo.json();
       const respuestaUsuarios = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/"
+        "http://localhost:4000/api/boaTerra/"
       );
       const resultadoUsuarios = await respuestaUsuarios.json();
       resultadoProd.sort((a, b) => {
@@ -65,22 +66,21 @@ const App = () => {
       });
 
       const respuestaCli = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta/cliente"
+        "http://localhost:4000/api/boaTerra/principal/venta/cliente"
       );
       const resultadoCliente = await respuestaCli.json();
       setProductos(resultadoProd);
       setCombos(resultadoCombos);
       setUsuarios(resultadoUsuarios);
       setClientes(resultadoCliente);
-
       const respuestaEnviosPend = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/pendientes"
+        "http://localhost:4000/api/boaTerra/principal/envios/pendientes"
       );
       const resultadoEnvioProceso = await respuestaEnviosPend.json();
       setEnviosPendientes(resultadoEnvioProceso);
 
       const respuestaCadete = await fetch(
-        "https://boa-terra.herokuapp.com/api/boaTerra/principal/cadetes"
+        "http://localhost:4000/api/boaTerra/principal/cadetes"
       );
       const resultadoCadete = await respuestaCadete.json();
       setCadetes(resultadoCadete);
@@ -173,6 +173,9 @@ const App = () => {
         </Route>
         <Route exact path="/perfil">
           <MyPerfil usuarioActivo={usuarioActivo} setRefrescar={setRefrescar}></MyPerfil>
+        </Route>
+        <Route exact path="/control-caja">
+          <BillingSummary ></BillingSummary>
         </Route>
         <Route exact path="*">
           <PageNotFound></PageNotFound>

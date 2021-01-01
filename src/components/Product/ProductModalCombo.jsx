@@ -85,7 +85,7 @@ const ProductModalCombo = (props) => {
         };
         console.log(newCombo);
         const resultado = await fetch(
-          "https://boa-terra.herokuapp.com/api/boaterra/administracion/combo",
+          "http://localhost:4000/api/boaterra/administracion/combo",
           {
             method: "POST",
             headers: {

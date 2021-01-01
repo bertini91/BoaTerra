@@ -4,7 +4,6 @@ import IconSeeSending from "../../assets/static/verenvio.png";
 
 const SendingListItem = (props) => {
   const { envio, index, operationSend, handleShowDetail } = props;
-
   return (
     <>
       <tr>

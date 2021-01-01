@@ -55,7 +55,7 @@ const Header = (props) => {
       <div className="d-flex">
         {isAdmin ? (
           <button className="closeBox_perfil-nav">
-            <Link to="/cierre-caja">Cierre de Caja</Link>
+            <Link to="/control-caja">Control de Caja</Link>
           </button>
         ) : null}
         <div className="header__menu">
@@ -75,9 +75,9 @@ const Header = (props) => {
                     <li>
                       <Link to="/perfil">Mis Datos</Link>
                     </li>
-                    <li className="closeBox_perfil">
-                      <Link to="/cierre-caja">Cierre de Caja</Link>
-                    </li>
+                    {/* <li className="closeBox_perfil">
+                      <Link to="/control-caja">Control de Caja</Link>
+                    </li> */}
                     <li>
                       <Link to="/control-caja">Control Caja</Link>
                     </li>

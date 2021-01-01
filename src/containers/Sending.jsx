@@ -12,6 +12,8 @@ const Sending = (props) => {
     cadetes,
   } = props;
 
+  console.log("SENDIG");
+  console.log(enviosPendientes)
   
   const [show, setShow] = useState(false);
   const [showDetail, setShowDetail] = useState(false);
@@ -55,7 +57,7 @@ const Sending = (props) => {
         fechaEnvio: fecha,
       };
       const resultado = await fetch(
-        `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/${idEnvio}`,
+        `http://localhost:4000/api/boaTerra/principal/envios/${idEnvio}`,
         {
           method: "PUT",
           headers: {
@@ -87,7 +89,7 @@ const Sending = (props) => {
         fechaEnvio: fecha,
       };
       const resultado = await fetch(
-        `https://boa-terra.herokuapp.com/api/boaTerra/principal/envios/confirmar/${envio._id}`,
+        `http://localhost:4000/api/boaTerra/principal/envios/confirmar/${envio._id}`,
         {
           method: "PUT",
           headers: {

@@ -51,7 +51,7 @@ const Cart = (props) => {
     } else {
       const newBuy = {
         fechaVen: fecha,
-        estadoVen: false,
+        estadoVen: true,
         vendedorVen: usuarioActivo,
         totalVen: total,
         productoVen: productosCarrito,
@@ -60,7 +60,7 @@ const Cart = (props) => {
       console.log(newBuy);
       try {
         const resultado = await fetch(
-          "https://boa-terra.herokuapp.com/api/boaTerra/principal/venta",
+          "http://localhost:4000/api/boaTerra/principal/venta",
           {
             method: "POST",
             headers: {

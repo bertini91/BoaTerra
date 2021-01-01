@@ -86,7 +86,7 @@ const ProductModalNew = (props) => {
         };
         console.log(newProduct);
         const resultado = await fetch(
-          "https://boa-terra.herokuapp.com/api/boaterra/administracion/productos/nuevo",
+          "http://localhost:4000/api/boaterra/administracion/productos/nuevo",
           {
             method: "POST",
             headers: {

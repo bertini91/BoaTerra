@@ -26,7 +26,7 @@ const MyPerfil = (props) => {
           permisoUsu: typePermise,
         };
         const resultado = await fetch(
-          `https://boa-terra.herokuapp.com/api/boaterra/administracion/usuarios/${usuarioActivo._id}`,
+          `http://localhost:4000/api/boaterra/administracion/usuarios/${usuarioActivo._id}`,
           {
             method: "PUT",
             headers: {
