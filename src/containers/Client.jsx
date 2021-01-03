@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
+import ExamplePrint from "../components/Print/Example";
 import "../assets/styles/Client.scss";
 
 const Client = (props) => {
@@ -307,6 +308,14 @@ const Client = (props) => {
             >
               ATRÁS
             </button>
+            {console.log(Object.keys(currentCliente).length !== 0),
+            (Object.keys(currentCliente).length !== 0)?
+               <ExamplePrint
+                 productosCarrito={productosCarrito}
+                 currentCliente={currentCliente}
+                 medioPago={medioPago}
+               ></ExamplePrint>
+             :null}
             <button
               className="buttonCli textButtonCli"
               type="submit"

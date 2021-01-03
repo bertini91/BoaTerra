@@ -19,7 +19,7 @@ const SendingList = (props) => {
         <Table className="sendingTable">
           <thead>
             <tr>
-              <th>#</th>
+              <th className="text-center">#</th>
               <th>CLIENTE</th>
               <th>DIRECCIÓN</th>
               <th>ESTADO</th>
