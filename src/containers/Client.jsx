@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
@@ -6,6 +6,8 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 import "../assets/styles/Client.scss";
+import ExamplePrint from "../components/Print/Example";
+import { NULL } from "node-sass";
 
 const Client = (props) => {
   const resultList = React.createRef;
@@ -29,13 +31,11 @@ const Client = (props) => {
   } = props;
   let history = useHistory();
 
-  useEffect(
-    () => {
-      setResultClient(clientes);
-      console.log("En useEffect");
-      console.log(currentCliente);
-    } , [currentCliente]
-  );
+  useEffect(() => {
+    setResultClient(clientes);
+    console.log("En useEffect");
+    console.log(currentCliente);
+  }, [currentCliente]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -92,8 +92,8 @@ const Client = (props) => {
 
   const cleanInput = () => {
     //A ESTA FUNCION SE LA PUEDE TENER EN CUENTA EL ERROR AL SELECCIONAR LA PERSONA QUE NO ESTABA EN LA DB
-    console.log("en cleanInput __________________");
-    console.log(currentCliente);
+    /* console.log("en cleanInput __________________");
+    console.log(currentCliente); */
     document.getElementById("inputName").value = "";
     document.getElementById("inputSurname").value = "";
     document.getElementById("inputAddress").value = "";
@@ -106,8 +106,8 @@ const Client = (props) => {
   const handleConfirmClient = (event) => {
     //AQUI DEBERIA PREGUNTAR SI LOS CAMPOS OBLIGATORIOS ESTAN COMPLETOS
     event.preventDefault();
-    console.log(`en handleConfirmClient ************** ${alreadySave}`);
-    console.log(currentCliente);
+    /* console.log(`en handleConfirmClient ************** ${alreadySave}`);
+    console.log(currentCliente); */
     const cli = {
       nombreCli: document.getElementById("inputName").value,
       apellidoCli: document.getElementById("inputSurname").value,
@@ -117,6 +117,11 @@ const Client = (props) => {
     };
     setCurrentCliente(cli);
     alreadySave ? handleSaveBuy() : setShowModal(true);
+    console.log(document.getElementById("buttonPrint"));
+    document.getElementById("buttonPrint").onClick = true;
+    {
+      /* <ExamplePrint productosCarrito={productosCarrito}></ExamplePrint> */
+    }
   };
 
   const handleSaveClient = async () => {
@@ -142,7 +147,7 @@ const Client = (props) => {
           body: JSON.stringify(cli),
         }
       );
-      console.log(resultado.status)
+      console.log(resultado.status);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -151,8 +156,8 @@ const Client = (props) => {
         footer: "<p>No se pudo agregar el cliente.</p>",
       });
     }
-    console.log("CURRETCLIENTE = ");
-    console.log(currentCliente);
+    /* console.log("CURRETCLIENTE = ");
+    console.log(currentCliente); */
     handleSaveBuy();
   };
 
@@ -307,10 +312,15 @@ const Client = (props) => {
             >
               ATRÁS
             </button>
-            <button
-              className="buttonCli textButtonCli"
-              type="submit"
-            >
+            {console.log(Object.keys(currentCliente).length !== 0),
+            (Object.keys(currentCliente).length !== 0)?
+               <ExamplePrint
+                 productosCarrito={productosCarrito}
+                 currentCliente={currentCliente}
+                 medioPago={medioPago}
+               ></ExamplePrint>
+             :null}
+            <button className="buttonCli textButtonCli" type="submit">
               CONFIRMAR
             </button>
           </section>

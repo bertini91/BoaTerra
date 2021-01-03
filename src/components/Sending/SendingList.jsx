@@ -11,7 +11,7 @@ const SendingList = (props) => {
     handleShowDetail
   } = props;
 
-  useEffect(() => {}, []);
+  /* useEffect(() => {}, []); */
 
   return (
     <>
@@ -19,7 +19,7 @@ const SendingList = (props) => {
         <Table className="sendingTable">
           <thead>
             <tr>
-              <th>#</th>
+              <th class="text-center">#</th>
               <th>CLIENTE</th>
               <th>DIRECCIÓN</th>
               <th>ESTADO</th>

@@ -1,0 +1,15 @@
+@import "../Apps.scss";
+
+.print {
+  p {
+    line-height: 10px;
+  }
+}
+.pStrong {
+  font-weight: bolder;
+}
+
+.totalSection{
+    border-width: 2px;
+    border-radius: 5px;
+}
