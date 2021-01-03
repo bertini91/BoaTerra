@@ -1,7 +1,7 @@
 import React from "react";
 import IconSending from "../../assets/static/enviar.png";
 import IconSeeSending from "../../assets/static/verenvio.png";
-import ExampleIcon from "../Print/ExampleIcon";
+import ExampleIcon from "../Print/ExampleIcon.jsx";
 
 const SendingListItem = (props) => {
   const { envio, index, operationSend, handleShowDetail } = props;

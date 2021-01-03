@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 import "../assets/styles/Client.scss";
 import ExamplePrint from "../components/Print/Example";
-import { NULL } from "node-sass";
 
 const Client = (props) => {
   const resultList = React.createRef;
@@ -117,11 +116,6 @@ const Client = (props) => {
     };
     setCurrentCliente(cli);
     alreadySave ? handleSaveBuy() : setShowModal(true);
-    console.log(document.getElementById("buttonPrint"));
-    document.getElementById("buttonPrint").onClick = true;
-    {
-      /* <ExamplePrint productosCarrito={productosCarrito}></ExamplePrint> */
-    }
   };
 
   const handleSaveClient = async () => {
