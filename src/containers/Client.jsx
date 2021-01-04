@@ -30,13 +30,11 @@ const Client = (props) => {
   } = props;
   let history = useHistory();
 
-  useEffect(
-    () => {
-      setResultClient(clientes);
-      console.log("En useEffect");
-      console.log(currentCliente);
-    } , [currentCliente]
-  );
+  useEffect(() => {
+    setResultClient(clientes);
+    console.log("En useEffect");
+    console.log(currentCliente);
+  }, [currentCliente]);
 
   const handleSearch = (event) => {
     event.preventDefault();
@@ -143,7 +141,7 @@ const Client = (props) => {
           body: JSON.stringify(cli),
         }
       );
-      console.log(resultado.status)
+      console.log(resultado.status);
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -187,6 +185,7 @@ const Client = (props) => {
       if (resultado.status === 200) {
         Swal.fire("Listo!", "La venta se cargó correctamente", "success");
         clearSale();
+        await EventClick();
         setRefrescar(true);
         history.push("/principal");
       }
@@ -199,6 +198,12 @@ const Client = (props) => {
       });
     }
     setShowModal(false);
+  };
+
+  const EventClick = () => {
+    console.log("Si accedo a la funcion");
+    console.log(productosCarrito)
+    document.getElementById("buttonPrint").click();
   };
 
   return (
@@ -308,18 +313,16 @@ const Client = (props) => {
             >
               ATRÁS
             </button>
-            {console.log(Object.keys(currentCliente).length !== 0),
-            (Object.keys(currentCliente).length !== 0)?
-               <ExamplePrint
-                 productosCarrito={productosCarrito}
-                 currentCliente={currentCliente}
-                 medioPago={medioPago}
-               ></ExamplePrint>
-             :null}
-            <button
-              className="buttonCli textButtonCli"
-              type="submit"
-            >
+            <div display="none">
+              {Object.keys(currentCliente).length !== 0 ? (
+                <ExamplePrint
+                  productosCarrito={productosCarrito}
+                  currentCliente={currentCliente}
+                  medioPago={medioPago}
+                ></ExamplePrint>
+              ) : null}
+            </div>
+            <button className="buttonCli textButtonCli" type="submit">
               CONFIRMAR
             </button>
           </section>

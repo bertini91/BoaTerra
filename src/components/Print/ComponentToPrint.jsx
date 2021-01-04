@@ -30,7 +30,9 @@ export class ComponentToPrint extends React.PureComponent {
             <p className="fw-bold pStrong">No valido como factura</p>
           </div>
           <div>
-            <p>{`Fecha: ${fecha.getDate()}/${fecha.getMonth()+1}/${fecha.getFullYear()}`}</p>
+            <p>{`Fecha: ${fecha.getDate()}/${
+              fecha.getMonth() + 1
+            }/${fecha.getFullYear()}`}</p>
             <p>{`Hora: ${fecha.getHours()}:${fecha.getMinutes()}`}</p>
           </div>
         </section>
@@ -59,29 +61,31 @@ export class ComponentToPrint extends React.PureComponent {
             <p>{this.props.currentCliente.detalleCli}</p>
           </div>
         ) : null}
-        <Table className="table">
+        <Table className="table tablePrint">
           <thead>
-            <th>Cantidad</th>
+            <th className="text-center">Cantidad</th>
             <th>Producto</th>
             <th>Detalle</th>
-            <th>P. Unitario</th>
-            <th>Importe</th>
+            <th className="text-center">P. Unitario</th>
+            <th className="text-center">Importe</th>
           </thead>
           <tbody>
             {this.props.productosCarrito.map((element) => (
-              <tr>
-                <td className="pl-2">{element.unidad}</td>
+              <tr key={element._id}>
+                <td className=" text-center">{element.unidad}</td>
                 <td>{element.producto.nombreProd}</td>
                 <td>{element.producto.detalleProd}</td>
-                <td className="pl-2">{element.producto.precioProd}</td>
-                <td className="pl-2">{element.unidad * element.producto.precioProd}</td>
+                <td className="text-center">{`$ ${element.producto.precioProd}`}</td>
+                <td className="text-center">
+                  {`$ ${element.unidad * element.producto.precioProd}`}
+                </td>
               </tr>
             ))}
           </tbody>
         </Table>
         <section className="d-flex justify-content-end mt-3 mr-5 ">
           <p className="pStrong">TOTAL ($)</p>
-          <p  className="pStrong">{total}</p>
+          <p className="pStrong">{total}</p>
         </section>
       </div>
     );
